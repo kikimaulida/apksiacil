@@ -5,28 +5,67 @@ class m_produkd extends CI_Model {
 
 	public function tampil_produk()
 	{
-		if (isset($_GET['nama_kecamatan']) AND isset($_GET['nama_kategori']))
+		if (isset($_POST['nama_kecamatan']) AND isset($_POST['nama_kategori']))
 		{
-			$nama_kecamatan = $_GET['nama_kecamatan'];
-			$nama_kategori = $_GET['nama_kategori'];
-			return $this->db->query("SELECT tb_produk.id_produk, tb_produk.nama_produk, tb_produk.harga, tb_produk.foto_produk, tb_usaha.id_kecamatan, tb_usaha.id_kategori, tb_kecamatan.nama_kecamatan, tb_kategori.nama_kategori FROM tb_produk JOIN tb_usaha ON tb_usaha.id_usaha = tb_produk.id_usaha JOIN tb_kecamatan ON tb_usaha.id_kecamatan = tb_kecamatan.id_kecamatan JOIN tb_kategori ON tb_usaha.id_kategori = tb_kategori.id_kategori WHERE tb_kecamatan.nama_kecamatan ='$nama_kecamatan' AND tb_kategori.nama_kategori = '$nama_kategori'");
+			$jml = count($_POST['nama_kategori']);
+			$data1 =[];
+			for ($i=0; $i < $jml ; $i++) { 
+				array_push($data1,"'".$_POST['nama_kategori'][$i]."'");
+			}
+
+			$array1 = implode(',',$data1);
+
+			$jml = count($_POST['nama_kecamatan']);
+			$data =[];
+			for ($i=0; $i < $jml ; $i++) { 
+				array_push($data,"'".$_POST['nama_kecamatan'][$i]."'");
+			}
+
+			$array = implode(',',$data);
+
+
+			$dt = $this->db->query("SELECT tb_produk.id_produk, tb_produk.nama_produk, tb_produk.harga, tb_produk.foto_produk, tb_usaha.id_kecamatan, tb_usaha.id_kategori, tb_kecamatan.nama_kecamatan, tb_kategori.nama_kategori FROM tb_produk JOIN tb_usaha ON tb_usaha.id_usaha = tb_produk.id_usaha JOIN tb_kecamatan ON tb_usaha.id_kecamatan = tb_kecamatan.id_kecamatan JOIN tb_kategori ON tb_usaha.id_kategori = tb_kategori.id_kategori WHERE tb_kecamatan.nama_kecamatan in($array) and tb_kategori.nama_kategori in($array1)")->result();
+
+			return $dt;
 		}
 
-		else if(isset ($_GET['nama_kecamatan']))
+		else if(isset ($_POST['nama_kecamatan']))
 		{
-			$nama_kecamatan = $_GET['nama_kecamatan'];
-			return $this->db->query("SELECT tb_produk.id_produk, tb_produk.nama_produk, tb_produk.harga, tb_produk.foto_produk, tb_usaha.id_kecamatan, tb_kecamatan.nama_kecamatan FROM tb_produk JOIN tb_usaha ON tb_usaha.id_usaha = tb_produk.id_usaha JOIN tb_kecamatan ON tb_usaha.id_kecamatan = tb_kecamatan.id_kecamatan  WHERE tb_kecamatan.nama_kecamatan ='$nama_kecamatan'");
+			$jml = count($_POST['nama_kecamatan']);
+			$data =[];
+			for ($i=0; $i < $jml ; $i++) { 
+				array_push($data,"'".$_POST['nama_kecamatan'][$i]."'");
+			}
+
+			$array = implode(',',$data);
+
+			// print_r($array);
+
+			// $nama_kecamatan = $_POST['nama_kecamatan'][$i];
+				$dt = $this->db->query("SELECT tb_produk.id_produk, tb_produk.nama_produk, tb_produk.harga, tb_produk.foto_produk, tb_usaha.id_kecamatan, tb_kecamatan.nama_kecamatan FROM tb_produk JOIN tb_usaha ON tb_usaha.id_usaha = tb_produk.id_usaha JOIN tb_kecamatan ON tb_usaha.id_kecamatan = tb_kecamatan.id_kecamatan  WHERE tb_kecamatan.nama_kecamatan in($array)")->result();
+			// 	;
+
+			return $dt;
 		}
 		
-		else if (isset ($_GET['nama_kategori'])) 
+		else if (isset ($_POST['nama_kategori'])) 
 		{
-			$nama_kategori = $_GET['nama_kategori'];
-			return $this->db->query("SELECT tb_produk.id_produk, tb_produk.nama_produk, tb_produk.harga, tb_produk.foto_produk, tb_usaha.id_kecamatan, tb_kecamatan.nama_kecamatan, tb_usaha.id_kategori, tb_kategori.nama_kategori FROM tb_produk JOIN tb_usaha ON tb_usaha.id_usaha = tb_produk.id_usaha JOIN tb_kecamatan ON tb_usaha.id_kecamatan = tb_kecamatan.id_kecamatan JOIN tb_kategori ON tb_usaha.id_kategori = tb_kategori.id_kategori  WHERE tb_kategori.nama_kategori ='$nama_kategori'");
+			
+			$jml = count($_POST['nama_kategori']);
+			$data =[];
+			for ($i=0; $i < $jml ; $i++) { 
+				array_push($data,"'".$_POST['nama_kategori'][$i]."'");
+			}
+
+			$array = implode(',',$data);
+
+			$dt = $this->db->query("SELECT tb_produk.id_produk, tb_produk.nama_produk, tb_produk.harga, tb_produk.foto_produk, tb_usaha.id_kecamatan, tb_kecamatan.nama_kecamatan, tb_usaha.id_kategori, tb_kategori.nama_kategori FROM tb_produk JOIN tb_usaha ON tb_usaha.id_usaha = tb_produk.id_usaha JOIN tb_kecamatan ON tb_usaha.id_kecamatan = tb_kecamatan.id_kecamatan JOIN tb_kategori ON tb_usaha.id_kategori = tb_kategori.id_kategori  WHERE tb_kategori.nama_kategori in($array)")->result();
+			return $dt;
 		}
 		
 		else
 		{
-			return $this->db->query("SELECT tb_produk.id_produk, tb_produk.nama_produk, tb_produk.harga, tb_produk.foto_produk, tb_usaha.id_kecamatan, tb_kecamatan.nama_kecamatan FROM tb_produk JOIN tb_usaha ON tb_usaha.id_usaha = tb_produk.id_usaha JOIN tb_kecamatan ON tb_usaha.id_kecamatan = tb_kecamatan.id_kecamatan");
+			return $this->db->query("SELECT tb_produk.id_produk, tb_produk.nama_produk, tb_produk.harga, tb_produk.foto_produk, tb_usaha.id_kecamatan, tb_kecamatan.nama_kecamatan FROM tb_produk JOIN tb_usaha ON tb_usaha.id_usaha = tb_produk.id_usaha JOIN tb_kecamatan ON tb_usaha.id_kecamatan = tb_kecamatan.id_kecamatan")->result();
 		}		
 	}
 }

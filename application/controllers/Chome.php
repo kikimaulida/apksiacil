@@ -19,6 +19,9 @@ class Chome extends CI_Controller {
 	public function tampilproduk()
 	{
 		$data['row'] = $this->m_produkd->tampil_produk();
+		// echo '<pre>';
+		// print_r($data['row']);
+		// echo '</pre>';
 		$data['row1'] = $this->m_kecamatan->tampil_kecamatan();
 		$data['row2'] = $this->m_kategori->tampil_kategori();
 		$this->template1->load('template1', 'depan/tampil_produk', $data);

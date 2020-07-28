@@ -24,7 +24,7 @@
             <div class="col-lg-12">
                 <div class="sidebar">  
                   <div class="left_sidebar_area">
-                    <form data-parsley-validate class="form-horizontal form-label-left" method="GET">
+                    <form data-parsley-validate class="form-horizontal form-label-left" method="POST" action="<?php echo base_url('Chome/tampilproduk') ?>">
                       <aside class="left_widgets p_filter_widgets">
                         <div class="l_w_title">
                           <h3>Pilih Kecamatan</h3>
@@ -36,7 +36,7 @@
                             ?>
                                 <li>
                                   <!-- <a href="#"></a> -->
-                                  <input type="checkbox" name="nama_kecamatan" value="<?=$data->nama_kecamatan?>"> <?=$data->nama_kecamatan?>
+                                  <input type="checkbox" name="nama_kecamatan[]" value="<?=$data->nama_kecamatan?>"> <?=$data->nama_kecamatan?>
                                 </li>
                             <?php 
                               }
@@ -55,7 +55,7 @@
                               foreach ($row2->result() as $key => $data) {
                             ?>
                               <li>
-                                <input type="checkbox" name="nama_kategori" value="<?=$data->nama_kategori?>"> <?=$data->nama_kategori?>
+                                <input type="checkbox" name="nama_kategori[]" value="<?=$data->nama_kategori?>"> <?=$data->nama_kategori?>
                               </li>
                             <?php 
                               }
@@ -70,21 +70,7 @@
               </div>
             </div>
 
-            <?php 
-              if (isset($_GET['nama_kecamatan']) AND isset($_GET['nama_kategori']))
-              {
-                $nama_kecamatan = $_GET['nama_kecamatan'];
-                $nama_kategori = $_GET['nama_kategori'];
-              }
-              else if(isset($_GET['nama_kecamatan']))
-              {
-                $nama_kecamatan = $_GET['nama_kecamatan'];
-              } 
-              else if (isset($_GET['nama_kategori']))
-              {
-                $nama_kategori = $_GET['nama_kategori'];
-              }
-             ?>
+            
             <div class="col-lg-9 col-md-7">
                 <div class="product_top_bar">
                   <div class="left_dorp">
@@ -93,7 +79,7 @@
                 </div> <br>
                 <div class="row">
                     <?php $no=1; 
-                        foreach ($row->result() as $key => $data) {
+                        foreach ($row as $data) {
                         ?> 
                             <div class="col-lg-3 col-md-5 col-sm-5">
                                 <div class="product__item">
