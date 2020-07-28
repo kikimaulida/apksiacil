@@ -28,13 +28,13 @@
                               <?php $no=1; 
                                 foreach ($row->result() as $key => $data) {
                                 ?>  
-                                <tr> 
-                                  <td width="15%"><b>ID Pengguna</b></td>
-                                  <td><?=$data->id_pengguna?></td>
-                                </tr>
                                 <tr>
                                   <td width="15%"><b>Nama Lengkap</b></td>
                                   <td><?=$data->nama_lengkap?></td>
+                                </tr>
+                                <tr>
+                                  <td width="15%"><b>Email</b></td>
+                                  <td><?=$data->email?></td>
                                 </tr>
                                 <tr>
                                   <td width="15%"><b>username</b></td>
