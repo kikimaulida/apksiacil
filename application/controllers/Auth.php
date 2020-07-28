@@ -17,54 +17,86 @@ class Auth extends CI_Controller {
 			if($query->num_rows() > 0)
 			{
 				$row = $query->row();
-				$params = array(
-					'id_pengguna' => $row->id_pengguna,
-					'nama_lengkap' => $row->nama_lengkap,
-					'level' => $row->level,
-					'foto_pengguna' => $row->foto_pengguna,
-					/*'status' => $row->status,*/
-				);
-				$this->session->set_userdata($params);
-				$ci =& get_instance();
-				$ci->load->library('fungsi');
-				if($ci->fungsi->pengguna_login()->level == "user")
-				{
-					if($ci->fungsi->pengguna_login()->status == "diterima" )
-					{
-						redirect('Chome');
-					}
-					else if($ci->fungsi->pengguna_login()->status == "ditolak" )
-					{
-						$this->session->set_flashdata('error', "Maaf, Anda Tidak Diizinkan Masuk!");
-						redirect('auth/login');
-					}
-					else
-					{
-						$this->session->set_flashdata('error', "Maaf, tunggu verifikasi dari SIACIL TALA");
-						redirect('auth/login');
-					}
-				}
+				
 
-				else if($ci->fungsi->pengguna_login()->level == "admin" || "pelaku usaha")
-				{
-					if($ci->fungsi->pengguna_login()->status == "diterima" )
-					{
-						echo "<script>
+				$dt =  $this->m_pengguna->login($post)->row();
+
+				if($dt->status=='diterima'){
+					$params = array(
+						'id_pengguna' => $row->id_pengguna,
+						'nama_lengkap' => $row->nama_lengkap,
+						'level' => $row->level,
+						'foto_pengguna' => $row->foto_pengguna,
+						/*'status' => $row->status,*/
+					);
+					$this->session->set_userdata($params);
+					$ci =& get_instance();
+					 $ci->load->library('fungsi');
+					 if ($ci->fungsi->pengguna_login()->level == "user") {
+					 	redirect('Chome');
+					 	
+					 }elseif ($ci->fungsi->pengguna_login()->level == "admin" || "pelaku usaha") {
+					 	echo "<script>
 						alert('Selamat, login berhasil');
 						window.location='".site_url("dashboard")."' </script>";
-					}
+					 } 
+					 // else {
+					 // 	# code...
+					 // }
+					 
 
-					else if($ci->fungsi->pengguna_login()->status == "ditolak" )
-					{
-						$this->session->set_flashdata('error', "Maaf, Anda Tidak Diizinkan Masuk!");
+
+
+
+				}elseif ($dt->status=='ditolak') {
+					$this->session->set_flashdata('error', "Maaf, Anda Tidak Diizinkan Masuk!");
 						redirect('auth/login');
-					}
-					else
-					{
-						$this->session->set_flashdata('error', "Maaf, tunggu verifikasi dari SIACIL TALA");
+				}else {
+					$this->session->set_flashdata('error', "Maaf, tunggu verifikasi dari SIACIL TALA");
 						redirect('auth/login');
-					}
 				}
+				
+				// $ci =& get_instance();
+				// if($ci->fungsi->pengguna_login()->level == "user")
+				// {
+				// 	if($ci->fungsi->pengguna_login()->status == "diterima" )
+				// 	{
+
+				// $ci->load->library('fungsi');
+				// 		redirect('Chome');
+				// 	}
+				// 	else if($ci->fungsi->pengguna_login()->status == "ditolak" )
+				// 	{
+				// 		$this->session->set_flashdata('error', "Maaf, Anda Tidak Diizinkan Masuk!");
+				// 		redirect('auth/login');
+				// 	}
+				// 	else
+				// 	{
+				// 		$this->session->set_flashdata('error', "Maaf, tunggu verifikasi dari SIACIL TALA");
+				// 		redirect('auth/login');
+				// 	}
+				// }
+
+				// else if($ci->fungsi->pengguna_login()->level == "admin" || "pelaku usaha")
+				// {
+				// 	if($ci->fungsi->pengguna_login()->status == "diterima" )
+				// 	{
+				// 		echo "<script>
+				// 		alert('Selamat, login berhasil');
+				// 		window.location='".site_url("dashboard")."' </script>";
+				// 	}
+
+				// 	else if($ci->fungsi->pengguna_login()->status == "ditolak" )
+				// 	{
+				// 		$this->session->set_flashdata('error', "Maaf, Anda Tidak Diizinkan Masuk!");
+				// 		redirect('auth/login');
+				// 	}
+				// 	else
+				// 	{
+				// 		$this->session->set_flashdata('error', "Maaf, tunggu verifikasi dari SIACIL TALA");
+				// 		redirect('auth/login');
+				// 	}
+				// }
 			}
 			else 
 			{

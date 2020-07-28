@@ -9,6 +9,7 @@ class m_pengguna extends CI_Model {
 		$this->db->from('tb_pengguna');
 		$this->db->where('username', $post['username']);
 		$this->db->where('password', $post['password']);
+		// $this->db->where('status','diterima');
 		$query = $this->db->get();
 		return $query;
 
