@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 27 Jul 2020 pada 16.03
+-- Generation Time: 29 Jul 2020 pada 02.06
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -114,8 +114,8 @@ CREATE TABLE `tb_komentar_produk` (
 --
 
 INSERT INTO `tb_komentar_produk` (`id_komentar`, `komentar`, `id_produk`, `id_pengguna`, `tanggal`, `status`) VALUES
-(1, 'Apakah ada warna lain, selain yang ada di foto?', 33, 42, '2020-07-27', 0),
-(2, 'Maaf mba, warna baju hanya ada 4 warna seperti pada foto', 33, 41, '2020-07-27', 1);
+(3, 'Apakah ada warna selain di foto?', 33, 72, '2020-07-28', 0),
+(4, 'Maaf mba, hanya ada 4 warna', 33, 41, '2020-07-28', 3);
 
 -- --------------------------------------------------------
 
@@ -140,26 +140,27 @@ CREATE TABLE `tb_pengguna` (
 
 INSERT INTO `tb_pengguna` (`id_pengguna`, `nama_lengkap`, `email`, `username`, `password`, `foto_pengguna`, `level`, `status`) VALUES
 (40, 'M. Thahir Supian', 'siaciltala@gmail.com', 'admin', 'admin', 'pengguna-260720-7418ec14df.png', 'admin', 'diterima'),
-(41, 'Tari Yanti', 'mfahrialagustian08@gmail.com', 'tari', 'tari', 'pengguna-260720-c98ee0d455.png', 'pelaku usaha', 'diterima'),
-(42, 'Kiki Maulida', 'kikimaulida.99@gmail.com', 'kiki', 'kiki', 'pengguna-260720-11c6963912.png', 'user', 'diterima'),
-(43, 'Mila Camelia', 'mfahrialagustian08@gmail.com', 'mila', 'mila', 'pengguna-260720-54ce5b9410.png', 'pelaku usaha', 'diterima'),
-(44, 'Wahzuni Sri Rahayu', 'kikimaulida.99@gmail.com', 'wahzun', 'wahzun', 'default.png', 'pelaku usaha', 'menunggu konfirmasi'),
-(47, 'sari', 'kikimaulida.99@gmail.com', 'sari', 'sari', 'default.png', 'user', 'menunggu konfirmasi'),
-(48, 'reka', 'kikimaulida.99@gmail.com', 'reka', 'rela', 'default.png', 'pelaku usaha', 'menunggu konfirmasi'),
-(49, 'coba', 'mfahrialagustian08@gmail.com', 'coba', 'coba', 'default.png', 'user', 'ditolak'),
-(50, 'fahrial', 'mfahrialagustian08@gmail.com', 'fahrial', 'fahrial', 'default.png', 'user', 'ditolak');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tb_pengguna_token`
---
-
-CREATE TABLE `tb_pengguna_token` (
-  `id_token` int(11) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `token` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(41, 'Tari Yanti', 'tariyanti@gmail.com', 'tari', 'tari', 'pengguna-260720-c98ee0d455.png', 'pelaku usaha', 'diterima'),
+(43, 'Mila Camelia', 'milacamelia@gmail.com', 'mila', 'mila', 'pengguna-260720-54ce5b9410.png', 'pelaku usaha', 'diterima'),
+(44, 'Wahzuni Sri Rahayu', 'wahzunisr@gmail.com', 'wahzun', 'wahzun', 'default.png', 'pelaku usaha', 'diterima'),
+(55, 'Rina Nurdiana', 'rina@gmail.com', 'rina', 'rina', 'pengguna-280720-dd9495185e.png', 'pelaku usaha', 'diterima'),
+(56, 'Mustain', 'mustain@gmail.com', 'mustain', 'mustain', 'pengguna-280720-f7ff01f3bb.png', 'pelaku usaha', 'diterima'),
+(57, 'Sulastri', 'sulastri@gmail.com', 'sulastri', 'sulastri', 'pengguna-280720-036afd9cf3.png', 'pelaku usaha', 'diterima'),
+(58, 'Ardawati', 'ardawati@gmail.com', 'ardawati', 'ardawati', 'pengguna-280720-113f99928d.png', 'pelaku usaha', 'diterima'),
+(59, 'Hermawati', 'hermawati99@gmail.com', 'hermawati', 'hermawati', 'pengguna-280720-1948519af7.png', 'pelaku usaha', 'diterima'),
+(60, 'Anton', 'anton99@gmail.com', 'anton', 'anton', 'pengguna-280720-8cb73f37ca.png', 'pelaku usaha', 'diterima'),
+(61, 'Faridah', 'faridah@gmail.com', 'faridah', 'faridah', 'pengguna-280720-f992831156.png', 'pelaku usaha', 'diterima'),
+(62, 'sunarti', 'sunarti@gmail.com', 'sunarti', 'sunarti', 'pengguna-280720-f25a0b3cf2.png', 'pelaku usaha', 'diterima'),
+(63, 'Fajar Arisandi', 'fajar@gmail.com', 'fajar', 'fajar', 'pengguna-280720-2042f4d950.png', 'pelaku usaha', 'diterima'),
+(64, 'Purwanto', 'purwanto@gmail.com', 'purwanto', 'purwanto', 'pengguna-280720-f48baea140.png', 'pelaku usaha', 'diterima'),
+(65, 'Yuliana', 'yuliana@gmail.com', 'yuliana', 'yuliana', 'pengguna-280720-12ff31a701.png', 'pelaku usaha', 'diterima'),
+(66, 'masam', 'masam@gmail.com', 'masam', 'masam', 'pengguna-280720-1086db22be.png', 'pelaku usaha', 'diterima'),
+(67, 'Muhammad Nasrullah', 'nasrullah@gmail.com', 'nasrullah', 'nasrullah', 'pengguna-280720-f57f77396e.png', 'pelaku usaha', 'diterima'),
+(68, 'Mira', 'mira@gmail.com', 'mira', 'mira', 'pengguna-280720-a9064924fd.png', 'pelaku usaha', 'diterima'),
+(69, 'samlah', 'samlah@gmail.com', 'samlah', 'samlah', 'pengguna-280720-20a68f09af.png', 'pelaku usaha', 'diterima'),
+(70, 'Ibrahim', 'ibrahim@gmail.com', 'ibrahim', 'ibrahim', 'pengguna-280720-8cfcbfa8e3.png', 'pelaku usaha', 'diterima'),
+(71, 'Arbayan', 'arbayan@gmail.com', 'arbayan', 'arbayan', 'pengguna-280720-51bf3b50bd.png', 'pelaku usaha', 'diterima'),
+(72, 'Kiki Maulida', 'kikimaulida.99@gmail.com', 'kiki', 'kiki', 'default.png', 'user', 'diterima');
 
 -- --------------------------------------------------------
 
@@ -217,7 +218,7 @@ CREATE TABLE `tb_rating_produk` (
 --
 
 INSERT INTO `tb_rating_produk` (`id_rating`, `id_produk`, `id_pengguna`, `rating`, `review`, `tanggal`) VALUES
-(1, 33, 42, '4', 'Bahannya Adem, nyaman dipakai', '2020-07-27');
+(1, 33, 72, '4', 'bahannya adem', '2020-07-28');
 
 -- --------------------------------------------------------
 
@@ -300,12 +301,6 @@ ALTER TABLE `tb_pengguna`
   ADD PRIMARY KEY (`id_pengguna`);
 
 --
--- Indexes for table `tb_pengguna_token`
---
-ALTER TABLE `tb_pengguna_token`
-  ADD PRIMARY KEY (`id_token`);
-
---
 -- Indexes for table `tb_produk`
 --
 ALTER TABLE `tb_produk`
@@ -362,19 +357,13 @@ ALTER TABLE `tb_kecamatan`
 -- AUTO_INCREMENT for table `tb_komentar_produk`
 --
 ALTER TABLE `tb_komentar_produk`
-  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_pengguna`
 --
 ALTER TABLE `tb_pengguna`
-  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
-
---
--- AUTO_INCREMENT for table `tb_pengguna_token`
---
-ALTER TABLE `tb_pengguna_token`
-  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `tb_produk`
