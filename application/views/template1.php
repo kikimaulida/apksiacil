@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zxx">
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
@@ -9,10 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sistem Informasi Usaha Kecil</title>
     <link rel="shortcut icon" href="<?=base_url()?>/assets/images/tala.png">
-
     <!-- Google Font -->
     <link href="<?=base_url()?>/assets1/https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
-
     <!-- Css Styles -->
     <link rel="stylesheet" href="<?=base_url()?>/assets1/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="<?=base_url()?>/assets1/css/font-awesome.min.css" type="text/css">
@@ -25,29 +22,27 @@
 
      <!-- Css Styles assets 2 -->
      <!-- Required meta tags -->
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      <link rel="icon" href="img/favicon.png" type="image/png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="icon" href="img/favicon.png" type="image/png" />
       
-      <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="<?=base_url()?>assets2/css/bootstrap.css" />
-      <link rel="stylesheet" href="<?=base_url()?>assets2/vendors/linericon/style.css" />
-      <link rel="stylesheet" href="<?=base_url()?>assets2/css/font-awesome.min.css" />
-      <link rel="stylesheet" href="<?=base_url()?>assets2/css/themify-icons.css" />
-      <link rel="stylesheet" href="<?=base_url()?>assets2/css/flaticon.css" />
-      <link rel="stylesheet" href="<?=base_url()?>assets2/vendors/owl-carousel/owl.carousel.min.css" />
-      <link rel="stylesheet" href="<?=base_url()?>assets2/vendors/lightbox/simpleLightbox.css" />
-      <link rel="stylesheet" href="<?=base_url()?>assets2/vendors/nice-select/css/nice-select.css" />
-      <link rel="stylesheet" href="<?=base_url()?>assets2/vendors/animate-css/animate.css" />
-      <link rel="stylesheet" href="<?=base_url()?>assets2/vendors/jquery-ui/jquery-ui.css" />
-      <!-- main css -->
-      <link rel="stylesheet" href="<?=base_url()?>assets2/css/style.css" />
-      <link rel="stylesheet" href="<?=base_url()?>assets2/css/responsive.css" />
-
-      <link href="<?=base_url()?>/bxslider/dist/jquery.bxslider.css" rel="stylesheet" />
-
-      <link rel="stylesheet" href="<?=base_url()?>/assets/vendors/themify-icons/css/themify-icons.css">
-      <link rel="stylesheet" href="<?=base_url()?>/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<?=base_url()?>assets2/css/bootstrap.css" />
+    <link rel="stylesheet" href="<?=base_url()?>assets2/vendors/linericon/style.css" />
+    <link rel="stylesheet" href="<?=base_url()?>assets2/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="<?=base_url()?>assets2/css/themify-icons.css" />
+    <link rel="stylesheet" href="<?=base_url()?>assets2/css/flaticon.css" />
+    <link rel="stylesheet" href="<?=base_url()?>assets2/vendors/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="<?=base_url()?>assets2/vendors/lightbox/simpleLightbox.css" />
+    <link rel="stylesheet" href="<?=base_url()?>assets2/vendors/nice-select/css/nice-select.css" />
+    <link rel="stylesheet" href="<?=base_url()?>assets2/vendors/animate-css/animate.css" />
+    <link rel="stylesheet" href="<?=base_url()?>assets2/vendors/jquery-ui/jquery-ui.css" />
+    <!-- main css -->
+    <link rel="stylesheet" href="<?=base_url()?>assets2/css/style.css" />
+    <link rel="stylesheet" href="<?=base_url()?>assets2/css/responsive.css" />
+    <link href="<?=base_url()?>/bxslider/dist/jquery.bxslider.css" rel="stylesheet" />
+    <link rel="stylesheet" href="<?=base_url()?>/assets/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="<?=base_url()?>/assets/vendors/flag-icon-css/css/flag-icon.min.css">
 </head>
 
 <body>
@@ -55,7 +50,6 @@
     <div id="preloder">
         <div class="loader"></div>
     </div>
-
     <!-- Humberger Begin -->
     <?php
         if($this->session->userdata('id_pengguna')){
@@ -83,7 +77,7 @@
         <div id="mobile-menu-wrap"></div>
         <div class="humberger__menu__contact">
             <ul>
-                <li><i class="fa fa-phone"></i> +62 82158337585</li>
+                <li><i class="fa fa-phone"></i> 0512-21873</li>
                 <li>Dapatkan Produk-produk Unggulan dan Berkualitas Disini</li>
             </ul>
         </div>
@@ -102,7 +96,7 @@
                     <li><a href="<?=site_url('Chome/tampilusaha')?>">Usaha</a></li>
                     <li><a href="<?=site_url('Chome/tampilproduk')?>">Produk</a></li>
                     <li><a href="<?=site_url('chome/kontak')?>">Kontak</a></li>
-                    <li><a href="<?=site_url('slider')?>">Tentang</a></li>
+                    <li><a href="<?=site_url('chome/tentang')?>">Tentang</a></li>
                     <li><a href="<?=site_url('Auth/login')?>">Login</a></li>
                     <li><a href="<?=site_url('Chome/daftar')?>">Daftar</a></li>
                 </ul>
@@ -110,7 +104,7 @@
             <div id="mobile-menu-wrap"></div>
             <div class="humberger__menu__contact">
                 <ul>
-                    <li><i class="fa fa-phone"></i> +62 82158337585</li>
+                    <li><i class="fa fa-phone"></i> 0512-21873</li>
                     <li>Dapatkan Produk-produk Unggulan dan Berkualitas Disini</li>
                 </ul>
             </div>
@@ -118,6 +112,7 @@
     <?php } ?>
     <!-- Humberger End -->
 
+    <!-- web -->
     <!-- Header Section Begin -->
     <header class="header" style="background-color: black; margin-bottom: 15px;">
         <div class="header__top">
@@ -173,14 +168,11 @@
                 <div class="col-lg-8">
                     <nav class="header__menu">
                         <ul>
-                            <li><a href="<?=site_url('Chome')?>">Home</a></li>
-                            <li><a href="<?=site_url('Chome/tampilusaha')?>">Usaha</a></li>
-                            <li><a href="<?=site_url('Chome/tampilproduk')?>">Produk</a></li>
-                            <li><a href="<?=site_url('chome/kontak')?>">Kontak</a></li>
-                            <li><a href="<?=site_url('chome/tentang')?>">Tentang</a></li>
-                            <!-- <li><a href="<?=site_url('cakun/profile_pengguna/'. $this->session->userdata('id_pengguna'))?>">Akun</a></li>
-                            <li><a href="<?=site_url('Auth/logout')?>">Logout</a></li> -->
-                           <!--  <li class="menu-title" align="center" style="color: white; padding-top: 0" ><?=ucfirst($this->fungsi->pengguna_login()->nama_lengkap)?></li> -->
+                            <li <?=$this->uri->segment(1) == 'Chome' || $this->uri->segment(1) == '' ? 'class="active"' : ''?>><a href="<?=site_url('Chome')?>">Home</a></li>
+                            <li <?=$this->uri->segment(2) == 'tampilusaha' ? 'class="active"' : ''?>><a href="<?=site_url('chome/tampilusaha')?>">Usaha</a></li>
+                            <li <?=$this->uri->segment(2) == 'tampilproduk' ? 'class="active"' : ''?>><a href="<?=site_url('chome/tampilproduk')?>">Produk</a></li>
+                            <li <?=$this->uri->segment(2) == 'kontak' ? 'class="active"' : ''?>><a href="<?=site_url('chome/kontak')?>">Kontak</a></li>
+                            <li <?=$this->uri->segment(2) == 'tentang' ? 'class="active"' : ''?>><a href="<?=site_url('chome/tentang')?>">Tentang</a></li>
                         </ul>
                     </nav>
                 </div> 
@@ -192,7 +184,6 @@
     </header>
     <!-- Header Section End -->
 
-   
     <div class="contents">
             <?php echo $contents ?>
     </div>
@@ -264,10 +255,6 @@
 
         });
       });
-</script>
-
-
-
+    </script>
 </body>
-
 </html>
