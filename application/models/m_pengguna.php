@@ -21,7 +21,7 @@ class m_pengguna extends CI_Model {
 		{
 			$this->db->where('id_pengguna', $id_pengguna);
 		}
-		$this->db->order_by('id_pengguna', 'ASC');
+		$this->db->order_by('id_pengguna', 'DESC');
 		$query = $this->db->get();
 		return $query;
 	}

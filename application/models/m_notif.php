@@ -20,12 +20,6 @@ class m_notif extends CI_Model {
     	$this->db->from($this->table);
         return $this->db->count_all_results();
     }	
-
-    public function usaha_baru()
-    {
-        $usaha_baru = $this->db->query("SELECT * FROM tb_usaha WHERE tb_usaha.status = 'menunggu konfirmasi' ORDER BY tb_usaha.id_usaha DESC");
-        return $usaha_baru;
-    }
 }
 
 	
