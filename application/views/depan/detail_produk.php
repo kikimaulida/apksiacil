@@ -119,8 +119,8 @@
               <div class="product__details__price"><?=$data->harga?></div>
               <p><?=$data->deskripsi_produk?></p>
               <ul>
-                  <li><b style="color: black;">Stock</b> <span><?=$data->status_produk?></span></li>
-                  <li><b style="color: black;">Toko</b> <span><?=$data->nama_usaha?></span>
+                  <li><b style="color: black;">Status Produk</b> <span><?=$data->status_produk?></span></li>
+                  <li><b style="color: black;">Usaha/Toko</b> <span><?=$data->nama_usaha?></span>
                     <!-- <a href="<?=site_url('chome/detailusaha')?>">
                     <button class="btn badge-success" >Lihat Toko</button></li> -->
                   <li><b style="color: black;">Order</b> <span><?=$data->telepon?></span></li>

@@ -34,7 +34,7 @@ class Auth extends CI_Controller {
 					}elseif ($ci->fungsi->pengguna_login()->level == "admin" || "pelaku usaha") {
 						echo "<script>
 						alert('Selamat, login berhasil');
-						window.location='".site_url("dashboard")."' </script>";
+						window.location='".site_url("Dashboard")."' </script>";
 					}
 				}
 				elseif ($dt->status=='ditolak') {

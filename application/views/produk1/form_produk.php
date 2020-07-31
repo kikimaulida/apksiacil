@@ -58,7 +58,13 @@
                             }
                         } ?>
 
-                        <input type="file" id="file-input" name="foto_produk" value="<?=$row->foto_produk?>"  class="form-control-file">
+                        <?php if($page == 'tambah') { ?>
+                            <input type="file" id="file-input" name="foto_produk" class="form-control-file" required>
+                         <?php } 
+                        else { ?>
+                            <input type="file" id="file-input" name="foto_produk" class="form-control-file">
+                        <?php } ?>
+
                         <!-- <input type="file" id="file-input" name="foto_produk[]" class="form-control-file" multiple="multiple"> -->
                     </div>
                 </div>
@@ -71,7 +77,8 @@
                         <select name="status_produk" class="form-control" required="">
                             <option value="">- Pilih -</option>
                             <option value="Tersedia" <?=set_value('status_produk') == "Tersedia" ? "selected" : null?>>Tersedia</option>
-                            <option value="Kosong" <?=set_value('status_produk') == "Kosong" ? "selected" : null?>>Kosong</option>
+                            <option value="Habis" <?=set_value('status_produk') == "Habis" ? "selected" : null?>>Habis</option>
+                            <option value="Sudah Di Bookinng" <?=set_value('status_produk') == "Sudah Di Booking" ? "selected" : null?>>Sudah Di Booking</option>
                          </select>
                     </div>
                 </div>
@@ -85,7 +92,8 @@
                         <select name="status_produk" class="form-control">
                             <?php $status = $this->input->post('status_produk') ? $this->input->post('status_produk') : $row->status ?>
                             <option value="Tersedia" <?=set_value('status_produk') == "Tersedia" ? "selected" : null?>>Tersedia</option>
-                            <option value="Kosong" <?=$status == "Kosong" ? 'selected' : null?>>Kosong</option>
+                            <option value="Habis" <?=$status == "Habis" ? 'selected' : null?>>Habis</option>
+                            <option value="Sudah Di Bookinng" <?=$status == "Sudah Di Bookinng" ? 'selected' : null?>>Sudah Di Bookinng</option>
                          </select>
                     </div>
                 </div>
