@@ -85,15 +85,13 @@
                                 <div class="product__item">
                                     <div class="product__item__pic set-bg" data-setbg="<?=base_url('uploads/produk/'.$data->foto_produk)?>">
                                         <ul class="product__item__pic__hover">
-                                            <!-- <li><a href="<?=base_url()?>/assets1/#"><i class="fa fa-heart"></i></a></li> -->
                                             <li><a href="<?=site_url('chome/detail_produk/'. $data->id_produk)?>"><i class="fa fa-list"></i></a></li>
                                         </ul>
                                     </div>
                                     <div class="product__item__text">
                                         <h6><b style="color: black;"><?=$data->nama_produk?></b></h6>
-                                        <h6><b style="color: black;"><?=$data->harga?></b></h6>
+                                        <h6><b style="color: #dd2222;"><?=$data->harga?></b></h6>
                                         <h6><i class="fa fa-map-marker">&nbsp;</i><?=$data->nama_kecamatan?></h6>
-
                                     </div>
                                 </div>    
                             </div>

@@ -414,7 +414,6 @@
                             <textarea class="form-control" name="review" id="message"  rows="1" placeholder="Silahkan login terlebih dahulu untuk menambahkan rating dan review" readonly style="height: 100px;"></textarea>
                           </div>
                       </div>
-  
                     </form>
                   </div>
                   </div>
