@@ -191,7 +191,7 @@
 	        $status=$this->input->post('status');
 	        if ($status =='diterima') {
 	        	$subject = "Konfirmasi Pendaftaran Akun Diterima";
-	        	$pesan = "Silahkan Klik link <a href='".base_url()."/auth/login'> siaciltala</a> untuk Login ke sistem";
+	        	$pesan = "Silahkan Klik link <a href='".base_url()."auth/login'> siaciltala</a> untuk Login ke sistem";
 	        } else {
 	        	$subject = "Konfirmasi Pendaftaran Akun Ditolak";
 	        	$pesan = "Akun Anda Di tolak dengan alasan ".$this->input->post('pesan');
