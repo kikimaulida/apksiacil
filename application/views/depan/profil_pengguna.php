@@ -26,6 +26,11 @@
                 </div>
 
                 <div class="row form-group">
+                    <div class="col-md-3"><label class=" form-control-label">Email</label></div>
+                    <div class="col-12 col-md-9"><input type="text" name="email" value="<?=$data->email?>" class="form-control" disabled></div>
+                </div>
+
+                <div class="row form-group">
                     <div class="col-md-3"><label class=" form-control-label">Username</label></div>
                     <div class="col-12 col-md-9"><input type="text" name="username" value="<?=$data->username?>" class="form-control" disabled></div>
                 </div>
@@ -82,6 +87,7 @@
   foreach ($rowp->result_array() as $data):
       $id_pengguna=$data['id_pengguna'];
       $nama_lengkap=$data['nama_lengkap'];
+      $email=$data['email'];
       $username=$data['username'];
       $password=$data['password'];
 ?>
@@ -101,6 +107,11 @@
             <div class="col-md-3"><label class=" form-control-label">Nama</label></div>
             <div class="col-12 col-md-9"><input type="text" name="nama_lengkap" value="<?php echo $nama_lengkap;?>" class="form-control">
             <input type="hidden" class="form-control" value="<?php echo $this->session->userdata('id_pengguna')?>" id="recipient-name"></div>
+        </div>
+
+         <div class="row form-group">
+            <div class="col-md-3"><label class=" form-control-label">Email</label></div>
+            <div class="col-12 col-md-9"><input type="text" name="email" value="<?php echo $email;?>" class="form-control" readonly></div>
         </div>
 
         <div class="row form-group">
