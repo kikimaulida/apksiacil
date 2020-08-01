@@ -32,6 +32,7 @@ class Chome extends CI_Controller {
 		$data['id_produk'] = $id_produk;
 		$data['row1'] = $this->m_komentar->tampil_komentar($id_produk);
 		$data['row2'] = $this->m_rating->tampil_rating($id_produk);
+		$data['row3'] = $this->m_produk->fotoproduk($id_produk);
 		$data['jumlah_review']   = $this->m_rating->jumlahreview($id_produk);
 		$data['jumlah_rating']   = $this->m_rating->jumlahrating($id_produk);
 		$data['row'] = $this->m_produk->detailproduk($id_produk);

@@ -18,17 +18,35 @@
 <section class="product-details spad">
   <div class="container">
     <div class="row">
-      <?php $no=1; 
-        foreach ($row->result() as $key => $data) {
-      ?> 
+      
       <div class="col-lg-6 col-md-6">
           <div class="product__details__pic">
+            <?php
+              foreach ($row->result() as $key => $data) {
+            ?>
               <div class="product__details__pic__item">
                   <img class="product__details__pic__item--large"
                       src="<?=base_url('uploads/produk/'.$data->foto_produk)?>" alt="">     
               </div>
+            <?php } ?>
+
+              
+              <div class="product__details__pic__slider owl-carousel">
+              <?php 
+                foreach ($row3->result() as $key => $data) {
+              ?>
+                  <img data-imgbigurl="<?=base_url('uploads/produk/'.$data->foto_produk)?>"
+                      src="<?=base_url('uploads/produk/'.$data->foto_produk)?>" alt="">
+                  <?php } ?>
+              </div>
+              
           </div>
       </div>
+      
+
+      <?php $no=1; 
+        foreach ($row->result() as $key => $data) {
+      ?>
       <div class="col-lg-6 col-md-6">
           <div class="product__details__text">
               <h3><?=$data->nama_produk?></h3>
