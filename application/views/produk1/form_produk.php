@@ -108,19 +108,17 @@
                 <hr>
                 <div align="center">
                     <button type="submit" name="<?=$page?>" class="btn btn-info">Simpan</button>
-                    <a href="<?=site_url('cproduk1')?>">
-                        <button type="button" class="btn btn-warning">Batal</button>
-                    </a>
-
-                    <!-- <?php
-                        /*foreach ($row->result() as $key => $data)*/ {
-                    ?> 
-                    <a href="<?=site_url('cproduk1/tampil_produk/'. $data->id_produk)?>">
-                        <button type="button" class="btn btn-warning">Batal</button>
-                    </a>
-                    <?php } ?>  -->
-
-                    
+                    <?php 
+                    if($page == 'tambah') { ?>
+                        <a href="<?=site_url('cproduk1/tampil_produk/'. $this->uri->segment(3). '/'. $this->uri->segment(4))?>">
+                            <button type="button" class="btn btn-warning">Batal</button>
+                        </a>
+                        <?php }
+                    else { ?>
+                        <a href="<?=site_url('cproduk1')?>">
+                            <button type="button" class="btn btn-warning">Batal</button>
+                        </a>
+                    <?php } ?>           
                 </div>
             </form>
             <?php echo form_close()?>

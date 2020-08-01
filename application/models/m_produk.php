@@ -30,6 +30,11 @@ class m_produk extends CI_Model {
 	{
 		return $this->db->query("SELECT tb_produk.*, tb_usaha.* FROM tb_produk JOIN tb_usaha ON tb_produk.id_usaha = tb_usaha.id_usaha  WHERE tb_produk.id_produk = '$id_produk'");
 	}
+
+	public function fotoproduk($id_produk)
+	{
+		return $this->db->query("SELECT tb_foto_produk.* FROM tb_foto_produk JOIN tb_produk ON tb_produk.id_produk = tb_foto_produk.id_produk  WHERE tb_produk.id_produk = '$id_produk'");
+	}
  
 	public function tambah_produk($post)
 	{
@@ -80,6 +85,21 @@ class m_produk extends CI_Model {
 		$query = $this->db->get();
 		return $query;
 	}
-}
 
-/*SELECT tb_produk.nama_produk, tb_usaha.nama_usaha, tb_usaha.id_kecamatan FROM tb_usaha JOIN tb_produk ON tb_produk.id_usaha = tb_usaha.id_usaha JOIN tb_kecamatan ON tb_usaha.id_kecamatan = tb_kecamatan.id_kecamatan  WHERE tb_kecamatan.id_kecamatan ='9'*/
+	public function upload($data = array()){
+        // Insert Ke Database dengan Banyak Data Sekaligus
+        return $this->db->insert_batch('tb_foto_produk',$data);
+    }
+
+    public function get_foto($id_foto)
+	{
+		$query =$this->db->query("select * from tb_foto_produk where id_foto='$id_foto' ");
+		return $query->row_array();
+	}
+
+    public function hapus_foto($id_foto)
+	{
+		$this->db->where('id_foto', $id_foto);
+		$this->db->delete('tb_foto_produk');
+	}
+}

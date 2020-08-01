@@ -74,3 +74,60 @@
         </div>
     </div><!-- .animated -->
 </div><!-- .content -->
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+              <?php $this->view('messages') ?>
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Foto Produk</strong>
+                    </div>
+                    <div class="card-body">
+                        <a href="<?=site_url('Cproduk1/tambah_foto/'.$this->uri->segment(3))?>">
+                            <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Tambah Foto</button>
+                        </a>
+                    </div>
+                    
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                            <thead>
+                              <tr>
+                                <th>No </th>
+                                <th>Foto Produk</th>
+                                <th>Aksi </th>
+
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <?php $no=1; 
+                                foreach ($row1->result() as $key => $data) {
+                                ?>  
+                                <tr> 
+                                  <td><?=$no++?>.</td>
+                                  <td class="text-center"> 
+                                    <?php if ($data->foto_produk != null ) { ?> 
+                                      <img src="<?=base_url('uploads/produk/'.$data->foto_produk)?>" style="width: 100px;">
+                                      <?php 
+                                    }
+                                    ?>    
+                                  </td>
+                                  <td class="text-center" width="230px">
+                                    <a href="<?=site_url('cproduk1/hapus_foto/'. $data->id_foto)?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')" class="btn btn-danger btn-sm"><i class="fa fa-trash-o "> Hapus</i></button></a>
+                                    
+                                  </td>
+                                </tr>
+                                <?php 
+                                  }
+                                ?>                         
+                            </tbody>
+                        </table>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
