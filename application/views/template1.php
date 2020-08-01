@@ -113,76 +113,6 @@
     <!-- Humberger End -->
 
     <!-- web -->
-    <!-- Header Section Begin -->
-   <!--  <header class="header" style="background-color: black; margin-bottom: 15px;">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__left">
-                            <ul>
-                                <li><i class="fa fa-phone"></i> 0512-21873</li>
-                                <li>Dapatkan Produk-produk Unggulan dan Berkualitas Disini</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__right">
-                            <?php
-                                if($this->session->userdata('id_pengguna')){
-                            ?>
-                            <div class="header__top__right__language">
-                                <img src="img/language.png" alt=""><i class="fa fa-user" style="color: black;"></i>&nbsp; 
-                                <div style="color: black;"><?=ucfirst($this->fungsi->pengguna_login()->nama_lengkap)?></div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul style="background: grey; width: 130%;">
-                                    <?php if($this->session->userdata('level') != 'user') { ?>
-                                    <li><a href="<?=site_url('Dashboard')?>"> Beranda</a></li> 
-
-                                    <?php } ?>
-                                    <li><a href="<?=site_url('cakun/profile_pengguna/'. $this->session->userdata('id_pengguna'))?>">Profil Saya</a></li>
-                                    <li><a href="<?=site_url('Auth/logout')?>">Logout</a></li>
-                                </ul>
-                            </div>
-                            <?php } 
-                            else{ ?>
-                            <div class="header__top__right__social">
-                                <a href="<?=site_url('Auth/login')?>"><i class="fa fa-user"></i>&nbsp; Login</a>
-                            </div>
-                             <div class="header__top__right__auth"> 
-                                <a href="<?=site_url('Chome/daftar')?>"><i class="fa fa-user"></i>Daftar</a>
-                            </div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="<?=base_url()?>/assets1/./index.html" ><img src="<?=base_url()?>/assets/images/logotala.jpg" style="height: 50px;" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <nav class="header__menu">
-                        <ul>
-                            <li <?=$this->uri->segment(1) == 'Chome' || $this->uri->segment(1) == '' ? 'class="active"' : ''?>><a href="<?=site_url('Chome')?>">Home</a></li>
-                            <li <?=$this->uri->segment(2) == 'tampilusaha' ? 'class="active"' : ''?>><a href="<?=site_url('chome/tampilusaha')?>">Usaha</a></li>
-                            <li <?=$this->uri->segment(2) == 'tampilproduk' ? 'class="active"' : ''?>><a href="<?=site_url('chome/tampilproduk')?>">Produk</a></li>
-                            <li <?=$this->uri->segment(2) == 'kontak' ? 'class="active"' : ''?>><a href="<?=site_url('chome/kontak')?>">Kontak</a></li>
-                            <li <?=$this->uri->segment(2) == 'tentang' ? 'class="active"' : ''?>><a href="<?=site_url('chome/tentang')?>">Tentang</a></li>
-                        </ul>
-                    </nav>
-                </div> 
-            </div>
-            <div class="humberger__open">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-    </header> -->
-
     <header class="header_area">
     <div class="header__top">
         <div class="container">
@@ -239,8 +169,8 @@
                     <nav class="header__menu">
                         <ul>
                             <li <?=$this->uri->segment(1) == 'Chome' || $this->uri->segment(1) == '' ? 'class="active"' : ''?>><a href="<?=site_url('Chome')?>">Home</a></li>
-                            <li <?=$this->uri->segment(2) == 'tampilusaha' ? 'class="active"' : ''?>><a href="<?=site_url('chome/tampilusaha')?>">Usaha</a></li>
-                            <li <?=$this->uri->segment(2) == 'tampilproduk' ? 'class="active"' : ''?>><a href="<?=site_url('chome/tampilproduk')?>">Produk</a></li>
+                            <li <?=$this->uri->segment(2) == 'tampilusaha' || $this->uri->segment(2) == 'detailusaha' ? 'class="active"' : ''?>><a href="<?=site_url('chome/tampilusaha')?>">Usaha</a></li>
+                            <li <?=$this->uri->segment(2) == 'tampilproduk' || $this->uri->segment(2) == 'detail_produk' ? 'class="active"' : ''?>><a href="<?=site_url('chome/tampilproduk')?>">Produk</a></li>
                             <li <?=$this->uri->segment(2) == 'kontak' ? 'class="active"' : ''?>><a href="<?=site_url('chome/kontak')?>">Kontak</a></li>
                             <li <?=$this->uri->segment(2) == 'tentang' ? 'class="active"' : ''?>><a href="<?=site_url('chome/tentang')?>">Tentang</a></li>
                         </ul>
