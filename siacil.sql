@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 29 Jul 2020 pada 02.06
+-- Generation Time: 01 Agu 2020 pada 12.10
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -42,6 +42,30 @@ CREATE TABLE `tb_banner` (
 INSERT INTO `tb_banner` (`id_banner`, `foto_banner`, `tgl_unggah`, `id_pengguna`) VALUES
 (7, 'banner-200726-29525e3915.PNG', '2020-07-26', 40),
 (8, 'banner-200726-155ebdc79e.PNG', '2020-07-26', 40);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_foto_produk`
+--
+
+CREATE TABLE `tb_foto_produk` (
+  `id_foto` int(11) NOT NULL,
+  `id_produk` int(11) NOT NULL,
+  `foto_produk` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_foto_produk`
+--
+
+INSERT INTO `tb_foto_produk` (`id_foto`, `id_produk`, `foto_produk`) VALUES
+(1, 33, 'produk-200726-82c0c5915d.jpg'),
+(2, 33, 'produk-200726-853babeb96.jpg'),
+(12, 43, 'yuni1.png'),
+(13, 43, 'yuni2.png'),
+(14, 43, 'yuni3.png'),
+(15, 33, 'itsy5.jpg');
 
 -- --------------------------------------------------------
 
@@ -160,7 +184,8 @@ INSERT INTO `tb_pengguna` (`id_pengguna`, `nama_lengkap`, `email`, `username`, `
 (69, 'samlah', 'samlah@gmail.com', 'samlah', 'samlah', 'pengguna-280720-20a68f09af.png', 'pelaku usaha', 'diterima'),
 (70, 'Ibrahim', 'ibrahim@gmail.com', 'ibrahim', 'ibrahim', 'pengguna-280720-8cfcbfa8e3.png', 'pelaku usaha', 'diterima'),
 (71, 'Arbayan', 'arbayan@gmail.com', 'arbayan', 'arbayan', 'pengguna-280720-51bf3b50bd.png', 'pelaku usaha', 'diterima'),
-(72, 'Kiki Maulida', 'kikimaulida.99@gmail.com', 'kiki', 'kiki', 'default.png', 'user', 'diterima');
+(72, 'Kiki Maulida', 'kikimaulida.99@gmail.com', 'kiki', 'kiki', 'default.png', 'user', 'diterima'),
+(73, 'Kiki Maulida', 'ikkymaulidha@gmail.com', 'kiky', 'kiky', 'default.png', 'user', 'diterima');
 
 -- --------------------------------------------------------
 
@@ -189,7 +214,7 @@ INSERT INTO `tb_produk` (`id_produk`, `id_usaha`, `id_pengguna`, `nama_produk`, 
 (34, 21, 41, 'Maurin Oneset', 'Bahan : Rayon Viscose,\r\nLd 102cm fit to L,\r\nP.Celana +- 94cm', 'Rp.165.000', 'produk-200726-853babeb96.jpg', 'Tersedia', '2020-07-26'),
 (35, 21, 41, 'Tulip Pants', 'Bahan : Scuba Tebal,\r\nAllsize fit to L (pinggang karet),\r\nP.Celana +- 90cm', 'Rp.120.000', 'produk-200726-4ac2b316a5.jpg', 'Tersedia', '2020-07-26'),
 (36, 21, 41, 'Tina Maxy Dress', 'Bahan : Torry Burch,\r\nLd 104cm fit to L,\r\nP.baju 135cm', 'Rp.190.000', 'produk-200726-56aae652af.PNG', 'Tersedia', '2020-07-26'),
-(37, 21, 41, 'Dark Snow BF jeans', 'Bahan : jeans,\r\nSize : 27 28 29 30,\r\nP.celana : 95cm', 'Rp.135.000', 'produk-200726-75ac06de3d.jpg', 'Kosong', '2020-07-26'),
+(37, 21, 41, 'Dark Snow BF jeans', 'Bahan : jeans,\r\nSize : 27 28 29 30,\r\nP.celana : 95cm', 'Rp.135.000', 'produk-200726-75ac06de3d.jpg', 'Habis', '2020-07-26'),
 (38, 22, 43, 'Cireng Bumbu Rujak', 'Isi 10 harga 7 RIBU', 'Rp.7000', 'produk-200726-4bba208bd0.png', 'Tersedia', '2020-07-26'),
 (39, 22, 43, 'Empek-empek DOS', '10 RIBU KOMPLIT ( 1 kapal selam 2 lenjer), 5 RIBU ( 1 kapal selam) + kuah bisa PEDAS/MANIS', 'Rp.5000 - Rp.10.000', 'produk-200726-f994cd34d5.png', 'Tersedia', '2020-07-26'),
 (40, 22, 43, 'Empek-empek Lenjer', '10 RIBU ( isi 4 lenjer)', 'Rp.10.000', 'produk-200726-40fec4efdc.png', 'Tersedia', '2020-07-26'),
@@ -261,7 +286,9 @@ CREATE TABLE `tb_usaha` (
 INSERT INTO `tb_usaha` (`id_usaha`, `nama_usaha`, `id_pengguna`, `id_kategori`, `deskripsi`, `alamat`, `id_kecamatan`, `jam_operasional`, `telepon`, `foto_usaha`, `status`, `bergabung`) VALUES
 (21, 'itsy.wearing', 41, 11, 'Menyediakan pakaian ready stock dan real pict', 'Jl. Balirejo', 9, 'Setiap hari (10.00-17.00)', '082191912048', 'usaha-200726-a79bb3f57f.PNG', 'diterima', '2020-07-26'),
 (22, 'by.olahanmila', 43, 10, 'Menerima CATHERING : Empek-empek Dos dan Cireng Bumbu Rujak', 'Jl.A.Yani Km 101, Desa Jorong RT 12 RW 06', 5, 'Jika Ada Pesanan', '087764500306', 'usaha-200726-8580d1f323.jpeg', 'diterima', '2020-07-26'),
-(23, 'Cireng by Acil Jual', 44, 10, 'CIRENG READY SETIAP HARI. Pelaihari Kota Delivery Sampai Sore yaa, ORDER LANGSUNG WA 088246287353', 'Jl. Purnawirawan, Gg.Damai', 9, 'Setiap Hari', '088246287353', 'usaha-200726-4d973abba8.png', 'diterima', '2020-07-26');
+(23, 'Cireng by Acil Jual', 44, 10, 'CIRENG READY SETIAP HARI. Pelaihari Kota Delivery Sampai Sore yaa, ORDER LANGSUNG WA 088246287353', 'Jl. Purnawirawan, Gg.Damai', 9, 'Setiap Hari', '088246287353', 'usaha-200726-4d973abba8.png', 'diterima', '2020-07-26'),
+(24, 'AAS', 41, 12, 'SADSAD', 'SFS', 7, '89', '009', 'usaha-200731-1d45834324.PNG', 'diterima', '2020-07-31'),
+(25, 'kjgf', 41, 13, 'dkmfs', 'jl. coba', 8, '5', '8', 'usaha-200731-16abb3fb5c.jpg', 'ditolak', '2020-07-31');
 
 --
 -- Indexes for dumped tables
@@ -273,6 +300,13 @@ INSERT INTO `tb_usaha` (`id_usaha`, `nama_usaha`, `id_pengguna`, `id_kategori`, 
 ALTER TABLE `tb_banner`
   ADD PRIMARY KEY (`id_banner`),
   ADD KEY `id_pengguna` (`id_pengguna`);
+
+--
+-- Indexes for table `tb_foto_produk`
+--
+ALTER TABLE `tb_foto_produk`
+  ADD PRIMARY KEY (`id_foto`),
+  ADD KEY `id_produk` (`id_produk`);
 
 --
 -- Indexes for table `tb_kategori`
@@ -342,6 +376,12 @@ ALTER TABLE `tb_banner`
   MODIFY `id_banner` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `tb_foto_produk`
+--
+ALTER TABLE `tb_foto_produk`
+  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
 -- AUTO_INCREMENT for table `tb_kategori`
 --
 ALTER TABLE `tb_kategori`
@@ -363,7 +403,7 @@ ALTER TABLE `tb_komentar_produk`
 -- AUTO_INCREMENT for table `tb_pengguna`
 --
 ALTER TABLE `tb_pengguna`
-  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `tb_produk`
@@ -387,7 +427,7 @@ ALTER TABLE `tb_saran`
 -- AUTO_INCREMENT for table `tb_usaha`
 --
 ALTER TABLE `tb_usaha`
-  MODIFY `id_usaha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_usaha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -398,6 +438,12 @@ ALTER TABLE `tb_usaha`
 --
 ALTER TABLE `tb_banner`
   ADD CONSTRAINT `tb_banner_ibfk_1` FOREIGN KEY (`id_pengguna`) REFERENCES `tb_pengguna` (`id_pengguna`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tb_foto_produk`
+--
+ALTER TABLE `tb_foto_produk`
+  ADD CONSTRAINT `tb_foto_produk_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `tb_produk` (`id_produk`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `tb_komentar_produk`
