@@ -82,7 +82,11 @@
               <?php $this->view('messages') ?>
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Foto Produk Lainnya</strong>
+                      <?php
+                        foreach ($row->result() as $key => $data) {
+                      ?>  
+                        <strong class="card-title">Foto Produk "<?=$data->nama_produk?>" Lainnya</strong>
+                      <?php } ?>
                     </div>
                     <div class="card-body">
                         <a href="<?=site_url('Cproduk1/tambah_foto/'.$this->uri->segment(3))?>">
