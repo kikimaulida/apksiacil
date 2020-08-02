@@ -28,6 +28,8 @@ class m_produk extends CI_Model {
 
 	public function detailproduk($id_produk)
 	{
+		/*return $this->db->query("SELECT tb_produk.nama_produk, tb_produk.status_produk, tb_produk.harga, tb_produk.deskripsi_produk, tb_foto_produk.foto_produk, tb_usaha.* FROM tb_produk JOIN tb_usaha ON tb_produk.id_usaha = tb_usaha.id_usaha JOIN tb_foto_produk ON tb_foto_produk.id_produk = tb_produk.id_produk WHERE tb_produk.id_produk = '$id_produk' AND tb_foto_produk.id_foto LIMIT 1");*/
+
 		return $this->db->query("SELECT tb_produk.*, tb_usaha.* FROM tb_produk JOIN tb_usaha ON tb_produk.id_usaha = tb_usaha.id_usaha  WHERE tb_produk.id_produk = '$id_produk'");
 	}
 

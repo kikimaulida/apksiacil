@@ -18,7 +18,6 @@
 <section class="product-details spad">
   <div class="container">
     <div class="row">
-      
       <div class="col-lg-6 col-md-6">
           <div class="product__details__pic">
             <?php
@@ -43,7 +42,6 @@
           </div>
       </div>
       
-
       <?php $no=1; 
         foreach ($row->result() as $key => $data) {
       ?>
