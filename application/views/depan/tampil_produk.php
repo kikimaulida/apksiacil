@@ -24,7 +24,7 @@
             <div class="col-lg-12">
                 <div class="sidebar">  
                   <div class="left_sidebar_area">
-                    <form data-parsley-validate class="form-horizontal form-label-left" method="POST" action="<?php echo base_url('Chome/tampilproduk') ?>">
+                    <form data-parsley-validate class="form-horizontal form-label-left" method="POST" action="<?php echo base_url('chome/tampilproduk') ?>">
                       <aside class="left_widgets p_filter_widgets">
                         <div class="l_w_title">
                           <h3>Pilih Kecamatan</h3>
@@ -99,12 +99,12 @@
                         }
                     ?> 
                 </div>
-                <div class="product__pagination">
+               <!--  <div class="product__pagination">
                     <a href="<?=site_url('Chome/tampilproduk')?>">1</a>
                     <a href="<?=site_url('Chome/tampilproduk')?>">2</a>
                     <a href="<?=site_url('Chome/tampilproduk')?>">3</a>
                     <a href="<?=site_url('Chome/tampilproduk')?>"><i class="fa fa-long-arrow-right"></i></a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

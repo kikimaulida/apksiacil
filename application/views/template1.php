@@ -62,8 +62,8 @@
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li><a href="<?=site_url('Chome')?>">Home</a></li>
-                <li><a href="<?=site_url('Chome/tampilusaha')?>">Usaha</a></li>
-                <li><a href="<?=site_url('Chome/tampilproduk')?>">Produk</a></li>
+                <li><a href="<?=site_url('chome/tampilusaha')?>">Usaha</a></li>
+                <li><a href="<?=site_url('chome/tampilproduk')?>">Produk</a></li>
                 <li><a href="<?=site_url('chome/kontak')?>">Kontak</a></li>
                 <li><a href="<?=site_url('chome/tentang')?>">Tentang</a></li>
                 <?php if($this->session->userdata('level') != 'user') { ?>
@@ -149,7 +149,7 @@
                             <a href="<?=site_url('Auth/login')?>"><i class="fa fa-user"></i>&nbsp; Login</a>
                         </div>
                          <div class="header__top__right__auth"> 
-                            <a href="<?=site_url('Chome/daftar')?>"><i class="fa fa-user"></i>Daftar</a>
+                            <a href="<?=site_url('chome/daftar')?>"><i class="fa fa-user"></i>Daftar</a>
                         </div>
                         <?php } ?>
                     </div>

@@ -87,7 +87,7 @@ class Chome extends CI_Controller {
 			if($this->m_pengguna->check_username($post['username'])->num_rows() > 0 )
 			{
 				$this->session->set_flashdata('error', "Maaf, username  $post[username] sudah terdaftar/digunakan.");
-				redirect('Chome/daftar');
+				redirect('chome/daftar');
 			}
 
 			if(@$_FILES['foto_pengguna']['name'] != null)
@@ -105,7 +105,7 @@ class Chome extends CI_Controller {
 				else
 				{
 					$error = $this->upload->display_errors();
-					redirect('Chome/daftar');
+					redirect('chome/daftar');
 				}
 			}
 			else 
