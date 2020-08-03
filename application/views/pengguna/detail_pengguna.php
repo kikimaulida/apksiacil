@@ -40,10 +40,10 @@
                                   <td width="15%"><b>username</b></td>
                                   <td><?=$data->username?></td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                   <td width="15%"><b>password</b></td>
                                   <td><?=$data->password?></td>
-                                </tr>
+                                </tr> -->
                                 
                                 <tr>
                                   <td width="15%"><b>Foto Pengguna</b></td>  
@@ -58,6 +58,10 @@
                                 <tr>
                                   <td width="15%"><b>Level</b></td>
                                   <td><?=$data->level?></td>
+                                </tr>
+                                <tr>
+                                  <td width="15%"><b>Status</b></td>
+                                  <td><?=$data->status?></td>
                                 </tr>
                                 
                                 <?php 

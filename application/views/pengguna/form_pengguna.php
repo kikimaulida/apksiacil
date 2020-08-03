@@ -74,7 +74,7 @@
                 <?php } ?>
 
                 <!-- PAGE UBAH -->
-                <?php if($page == 'ubah') { ?>
+               <!--  <?php if($page == 'ubah') { ?>
                 <div class="row form-group">
                     <div class="col-md-3"><label class=" form-control-label">Level</label></div>
                     <div class="col-12 col-md-9">
@@ -86,7 +86,7 @@
                          </select>
                     </div>
                 </div>
-                <?php } ?>
+                <?php } ?> -->
 
                  <!-- PAGE TAMBAH -->
                 <?php if($page == 'tambah') { ?>
@@ -94,7 +94,7 @@
                 <?php } ?>
 
                 <!-- PAGE UBAH -->
-                <?php if($this->session->userdata('level') == 'admin') { ?>
+                <!-- <?php if($this->session->userdata('level') == 'admin') { ?>
                     <?php if($page == 'ubah') { ?>
                     <div class="row form-group">
                         <div class="col-md-3"><label class=" form-control-label">Status</label></div>
@@ -113,7 +113,7 @@
                     <?php if($page == 'ubah') { ?>
                         <input type="hidden" name="status" value="<?=$row->status?>" class="form-control" readonly="readonly" required>
                     <?php } ?> 
-                <?php } ?>
+                <?php } ?> -->
                 
                 <hr>
                 <div align="center">

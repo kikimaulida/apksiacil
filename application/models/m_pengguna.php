@@ -51,9 +51,11 @@ class m_pengguna extends CI_Model {
 		$pengguna = [
 			'id_pengguna' => $post['id_pengguna'],
 			'nama_lengkap' => $post['nama_lengkap'],
+			'email' => $post['email'],
 			'username' => $post['username'],
 			'password' => $post['password'],
-			'level' => $post['level'],
+			/*'level' => $post['level'],*/
+			/*'status' => $post['status'],*/
 		];
 		if($post['foto_pengguna'] != null)
 		{

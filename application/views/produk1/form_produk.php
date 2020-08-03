@@ -78,7 +78,8 @@
                             <option value="">- Pilih -</option>
                             <option value="Tersedia" <?=set_value('status_produk') == "Tersedia" ? "selected" : null?>>Tersedia</option>
                             <option value="Habis" <?=set_value('status_produk') == "Habis" ? "selected" : null?>>Habis</option>
-                            <option value="Sudah Di Bookinng" <?=set_value('status_produk') == "Sudah Di Booking" ? "selected" : null?>>Sudah Di Booking</option>
+                             <option value="Pre Order" <?=set_value('status_produk') == "Pre Order" ? "selected" : null?>>Pre Order</option>
+                            <option value="Sudah Di Booking" <?=set_value('status_produk') == "Sudah Di Booking" ? "selected" : null?>>Sudah Di Booking</option>
                          </select>
                     </div>
                 </div>
@@ -90,10 +91,11 @@
                     <div class="col-md-3"><label class=" form-control-label">status</label></div>
                     <div class="col-12 col-md-9">
                         <select name="status_produk" class="form-control">
-                            <?php $status = $this->input->post('status_produk') ? $this->input->post('status_produk') : $row->status ?>
+                            <?php $status_produk = $this->input->post('status_produk') ? $this->input->post('status_produk') : $row->status_produk ?>
                             <option value="Tersedia" <?=set_value('status_produk') == "Tersedia" ? "selected" : null?>>Tersedia</option>
-                            <option value="Habis" <?=$status == "Habis" ? 'selected' : null?>>Habis</option>
-                            <option value="Sudah Di Bookinng" <?=$status == "Sudah Di Bookinng" ? 'selected' : null?>>Sudah Di Bookinng</option>
+                            <option value="Habis" <?=$status_produk == "Habis" ? 'selected' : null?>>Habis</option>
+                            <option value="Pre Order" <?=$status_produk == "Pre Order" ? 'selected' : null?>>Pre Order</option>
+                            <option value="Sudah Di Booking" <?=$status_produk == "Sudah Di Booking" ? 'selected' : null?>>Sudah Di Booking</option>
                          </select>
                     </div>
                 </div>
