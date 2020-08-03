@@ -28,7 +28,7 @@ class m_usaha extends CI_Model {
 
 	public function cetak_usaha($awal,$akhir)
 	{
-		return $this->db->query("SELECT tb_usaha.*, tb_pengguna.id_pengguna, tb_pengguna.nama_lengkap, tb_kategori.nama_kategori, tb_kecamatan.nama_kecamatan FROM tb_pengguna JOIN tb_usaha ON tb_pengguna.id_pengguna = tb_usaha.id_pengguna JOIN tb_kategori ON tb_kategori.id_kategori = tb_usaha.id_kategori JOIN tb_kecamatan ON tb_kecamatan.id_kecamatan = tb_usaha.id_kecamatan WHERE tb_usaha.bergabung BETWEEN '$awal' AND '$akhir'");
+		return $this->db->query("SELECT tb_usaha.*, tb_pengguna.id_pengguna, tb_pengguna.nama_lengkap, tb_kategori.nama_kategori, tb_kecamatan.nama_kecamatan FROM tb_pengguna JOIN tb_usaha ON tb_pengguna.id_pengguna = tb_usaha.id_pengguna JOIN tb_kategori ON tb_kategori.id_kategori = tb_usaha.id_kategori JOIN tb_kecamatan ON tb_kecamatan.id_kecamatan = tb_usaha.id_kecamatan WHERE tb_usaha.status= 'diterima' AND tb_usaha.bergabung BETWEEN '$awal' AND '$akhir'");
 	}
 
 	public function getusaha($id_usaha)

@@ -54,14 +54,13 @@
 	        $pdf->Cell(10,8,'',0,1);
 	        $pdf->SetFont('Arial','B',7);
 	        $pdf->Cell(10,6,'No',1,0,'C');
-	        $pdf->Cell(30,6,'Nama Pemilik',1,0,'C');
-	        $pdf->Cell(32,6,'Nama Usaha',1,0,'C');
+	        $pdf->Cell(34,6,'Nama Pemilik',1,0,'C');
+	        $pdf->Cell(34,6,'Nama Usaha',1,0,'C');
 	        $pdf->Cell(25,6,'Kategori Usaha',1,0,'C');
-	        $pdf->Cell(65,6,'Alamat',1,0,'C');
+	        $pdf->Cell(85,6,'Alamat',1,0,'C');
 	        $pdf->Cell(31,6,'Kecamatan',1,0,'C');
-	        $pdf->Cell(25,6,'Telepon',1,0,'C');
-	        $pdf->Cell(20,6,'Status',1,0,'C');
-	        $pdf->Cell(20,6,'Bergabung',1,1,'C');
+	        $pdf->Cell(22,6,'Telepon',1,0,'C');
+	        $pdf->Cell(17,6,'Bergabung',1,1,'C');
 	        
 	        /*$pdf->Cell(25,6,'Delivery Baggage',1,1);*/
 
@@ -71,14 +70,13 @@
 	        $no=1;
 	        foreach ($usaha as $row){
 	        	$pdf->Cell(10,6,$no++,1,0);
-	            $pdf->Cell(30,6,$row->nama_lengkap,1,0);
-	            $pdf->Cell(32,6,$row->nama_usaha,1,0);
+	            $pdf->Cell(34,6,$row->nama_lengkap,1,0);
+	            $pdf->Cell(34,6,$row->nama_usaha,1,0);
 	            $pdf->Cell(25,6,$row->nama_kategori,1,0);
-	            $pdf->Cell(65,6,$row->alamat,1,0);
+	            $pdf->Cell(85,6,$row->alamat,1,0);
 	            $pdf->Cell(31,6,$row->nama_kecamatan,1,0); 
-	            $pdf->Cell(25,6,$row->telepon,1,0);
-	            $pdf->Cell(20,6,$row->status,1,0); 
-	            $pdf->Cell(20,6,date('d-m-Y', strtotime($row->bergabung)),1,1);
+	            $pdf->Cell(22,6,$row->telepon,1,0);
+	            $pdf->Cell(17,6,date('d-m-Y', strtotime($row->bergabung)),1,1);
 	            
 	            /*$pdf->Cell(25,6,$row->deliv_bag,1,1); */ 
 	        }
