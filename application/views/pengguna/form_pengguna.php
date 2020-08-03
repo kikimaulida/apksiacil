@@ -74,11 +74,11 @@
                 <?php } ?>
 
                 <!-- PAGE UBAH -->
-               <!--  <?php if($page == 'ubah') { ?>
+                <?php if($page == 'ubah') { ?>
                 <div class="row form-group">
                     <div class="col-md-3"><label class=" form-control-label">Level</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="level" class="form-control">
+                        <select name="level" class="form-control" disabled>
                             <?php $level = $this->input->post('level') ? $this->input->post('level') : $row->level ?>
                             <option value="admin" <?=set_value('level') == "admin" ? "selected" : null?>>Admin</option>
                             <option value="pelaku usaha" <?=$level == "pelaku usaha" ? 'selected' : null?>>Pelaku Usaha</option>
@@ -86,7 +86,7 @@
                          </select>
                     </div>
                 </div>
-                <?php } ?> -->
+                <?php } ?>
 
                  <!-- PAGE TAMBAH -->
                 <?php if($page == 'tambah') { ?>
@@ -94,12 +94,12 @@
                 <?php } ?>
 
                 <!-- PAGE UBAH -->
-               <!--  <?php if($this->session->userdata('level') == 'admin') { ?>
+                <?php if($this->session->userdata('level') == 'admin') { ?>
                     <?php if($page == 'ubah') { ?>
                     <div class="row form-group">
                         <div class="col-md-3"><label class=" form-control-label">Status</label></div>
                         <div class="col-12 col-md-9">
-                            <select name="status" class="form-control">
+                            <select name="status" class="form-control" disabled>
                                 <?php $status = $this->input->post('status') ? $this->input->post('status') : $row->status ?>
                                 <option value="diterima" <?=set_value('status') == "diterima" ? "selected" : null?>>Diterima</option>
                                 <option value="ditolak" <?=$status == "ditolak" ? 'selected' : null?>>Ditolak</option>
@@ -107,7 +107,7 @@
                         </div>
                     </div>
                     <?php } ?> 
-                <?php } ?> -->
+                <?php } ?>
 
                 <?php if($this->session->userdata('level') == 'pelaku usaha') { ?>
                     <?php if($page == 'ubah') { ?>
