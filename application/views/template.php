@@ -1,5 +1,6 @@
 <?php 
     $jml_usaha = $this->m_notif->total_rows();
+    $jml_daftar = $this->m_notif->total_daftar();
 ?>
 
 
@@ -107,7 +108,7 @@
                      </li>
 
                     <li <?=$this->uri->segment(1) == 'Cpengguna' ? 'class="active"' : ''?>>
-                        <a href="<?=site_url('Cpengguna')?>"> <i class="menu-icon fa fa-users"></i> Data Pengguna</a>
+                        <a href="<?=site_url('Cpengguna')?>"> <i class="menu-icon fa fa-users"></i> Data Pengguna <span class="count bg-danger"><?=$jml_daftar?></span></a>
                     </li>
 
                     <li <?=$this->uri->segment(1) == 'Csaran' ? 'class="active"' : ''?>>
