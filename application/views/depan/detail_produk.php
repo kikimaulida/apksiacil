@@ -192,7 +192,16 @@
                           <div class="media-body">
                             <h4><?=$dt->username?></h4>
                             <h5><?=date('d M Y', strtotime($dt->tanggal))?></h5>
-                            <a class="reply_btn" data-toggle="modal" data-target="#balaskomen<?php echo $dt->id_komentar?>" data-whatever="@getbootstrap">Balas</a>
+                            <?php
+                              if($this->session->userdata('id_pengguna')){
+                            ?>
+                              <a class="reply_btn" data-toggle="modal" data-target="#balaskomen<?php echo $dt->id_komentar?>" data-whatever="@getbootstrap">Balas</a>
+                            <?php 
+                            } 
+                              else
+                              { ?> 
+                                <a class="reply_btn" data-toggle="modal" disabled>Balas</a>
+                              <?php } ?>
                           </div>
                         </div>
                         <p><?=$dt->komentar?></p>
