@@ -51,7 +51,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href=""><img height="40px" src="<?=base_url()?>/assets/images/logotala.jpg" alt="Logo">  </a>
+                <a class="navbar-brand" href=""><img height="55px" src="<?=base_url()?>/assets/images/logo2.png" alt="Logo">  </a>
                 <a class="navbar-brand hidden" href=""><img src="<?=base_url()?>/assets/images/tala.png" alt="Logo"></a> <br>
             </div>
 

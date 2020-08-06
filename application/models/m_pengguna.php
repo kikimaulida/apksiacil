@@ -28,7 +28,7 @@ class m_pengguna extends CI_Model {
 
 	public function pemilik_usaha()
 	{
-		return $this->db->query("SELECT * FROM tb_pengguna WHERE level = 'pelaku usaha'");
+		return $this->db->query("SELECT * FROM tb_pengguna WHERE level = 'pelaku usaha' AND status = 'diterima'");
 	}
  
 	public function tambah_pengguna($post)
@@ -39,6 +39,7 @@ class m_pengguna extends CI_Model {
 			'email' => $post['email'],
 			'username' => $post['username'],
 			'password' => $post['password'],
+			'foto_ktp' => $post['foto_ktp'],
 			'foto_pengguna' => $post['foto_pengguna'],
 			'level' => $post['level'],
 			'status' => $post['status'],
@@ -57,6 +58,11 @@ class m_pengguna extends CI_Model {
 			/*'level' => $post['level'],*/
 			/*'status' => $post['status'],*/
 		];
+		if($post['foto_ktp'] != null)
+		{
+			$pengguna['foto_ktp'] = $post['foto_ktp'];
+		}
+
 		if($post['foto_pengguna'] != null)
 		{
 			$pengguna['foto_pengguna'] = $post['foto_pengguna'];

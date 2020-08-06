@@ -33,6 +33,31 @@
                     <div class="col-12 col-md-9"><input type="password" name="password" value="<?=$row->password?>" class="form-control"></div>
                 </div>
 
+                 <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="file-input" class=" form-control-label">Foto KTP</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <?php if($page == 'ubah') {
+                            if($row->foto_ktp != null){ ?>
+                                <div style="margin-bottom: 5px">
+                                    <img src="<?=base_url('uploads/pengguna/'.$row->foto_ktp)?>" style="width: 20%">
+                                </div>
+                            <?php
+                            }
+                        } ?>
+
+                        <?php if($page == 'tambah') { ?>
+                            <input type="file" id="file-input" name="foto_ktp" class="form-control-file" required>
+                         <?php } 
+                        else { ?>
+                            <input type="file" id="file-input" name="foto_ktp" class="form-control-file">
+                        <?php } ?>
+
+                       <!--  <input type="file" id="file-input" name="foto_pengguna" value="<?=$row->foto_pengguna?>"  class="form-control-file"> -->
+                    </div>
+                </div>
+
                 <div class="row form-group">
                     <div class="col col-md-3">
                         <label for="file-input" class=" form-control-label">Foto pengguna</label>
@@ -48,7 +73,7 @@
                         } ?>
 
                         <?php if($page == 'tambah') { ?>
-                            <input type="file" id="file-input" name="foto_pengguna" class="form-control-file" required>
+                            <input type="file" id="file-input" name="foto_pengguna" class="form-control-file">
                          <?php } 
                         else { ?>
                             <input type="file" id="file-input" name="foto_pengguna" class="form-control-file">
@@ -63,7 +88,7 @@
                 <div class="row form-group">
                     <div class="col-md-3"><label class=" form-control-label">Level</label></div>
                     <div class="col-12 col-md-9"> 
-                        <select name="level" class="form-control">
+                        <select name="level" class="form-control" required>
                             <option value="">- Pilih -</option>
                             <option value="admin" <?=set_value('level') == "admin" ? "selected" : null?>>Admin</option>
                             <option value="pelaku usaha" <?=set_value('level') == "pelaku usaha" ? "selected" : null?>>Pelaku Usaha</option>

@@ -44,6 +44,17 @@
                                   <td width="15%"><b>password</b></td>
                                   <td><?=$data->password?></td>
                                 </tr> -->
+
+                                <tr>
+                                  <td width="15%"><b>Foto KTP</b></td>  
+                                  <td>
+                                    <?php if ($data->foto_ktp!= null ) { ?> 
+                                      <img src="<?=base_url('uploads/pengguna/'.$data->foto_ktp)?>" style="width: 300px;">
+                                      <?php 
+                                    }
+                                    ?>                           
+                                  </td>
+                                </tr>
                                 
                                 <tr>
                                   <td width="15%"><b>Foto Pengguna</b></td>  

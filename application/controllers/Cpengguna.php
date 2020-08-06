@@ -27,6 +27,7 @@
 			$pengguna->email = null;
 			$pengguna->username = null;
 			$pengguna->password = null;
+			$pengguna->foto_ktp = null;
 			$pengguna->foto_pengguna = null;
 			$pengguna->level= null;
 
@@ -53,6 +54,19 @@
 				{
 					$this->session->set_flashdata('error', "Maaf, username  $post[username] sudah terdaftar/digunakan.");
 					redirect('Cpengguna/tambah');
+				}
+
+				if(@$_FILES['foto_ktp']['name'] != null)
+				{
+					if ($this->upload->do_upload('foto_ktp'))
+					{
+						$post['foto_ktp'] = $this->upload->data('file_name');
+					}
+					else
+					{
+						$error = $this->upload->display_errors();
+						redirect('cpengguna/tambah');
+					}
 				}
 				
 				if(@$_FILES['foto_pengguna']['name'] != null)
@@ -84,10 +98,25 @@
 			        }
 						redirect('cpengguna');
 				}
+
+				
 			} 
 			else if(isset($_POST['ubah'])) 
 			{
 				
+				if(@$_FILES['foto_ktp']['name'] != null)
+				{
+					if ($this->upload->do_upload('foto_ktp'))
+					{
+						$post['foto_ktp'] = $this->upload->data('file_name');
+					}
+					else
+					{
+						$error = $this->upload->display_errors();
+						redirect('cpengguna/tambah');
+					}
+				}
+
 				if(@$_FILES['foto_pengguna']['name'] != null)
 				{
 					if ($this->upload->do_upload('foto_pengguna'))

@@ -162,7 +162,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="<?=base_url()?>/assets1/./index.html" ><img src="<?=base_url()?>/assets/images/logotala.jpg" style="height: 50px;" alt=""></a>
+                        <a href="<?=base_url()?>/assets1/./index.html" ><img src="<?=base_url()?>/assets/images/logo4.png" style="height: 60px;" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-8">
