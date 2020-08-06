@@ -44,6 +44,14 @@
                                         <div class="col-md-3"><label class=" form-control-label" style="color: black;">Password</label></div>
                                         <div class="col-12 col-md-9"><input type="password" name="password" value="<?=$row->password?>" class="form-control" required oninvalid="this.setCustomValidity('Silahkan Diisi')" oninput="setCustomValidity('')"></div>
                                     </div>
+
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label class=" form-control-label" style="color: black;">Upload Foto/Scan KTP</label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <input style="color: black;" type="file" id="file-input" name="foto_ktp" class="form-control-file" required oninvalid="this.setCustomValidity('Silahkan upload foto/scan KTP')" oninput="setCustomValidity('')">
+                                        </div>
+                                    </div>
                                    
                                     <input type="hidden" name="level" value="<?php echo $level='user'?>" class="form-control">
 
@@ -86,6 +94,14 @@
                                     <div class="row form-group">
                                         <div class="col-md-3"><label class=" form-control-label" style="color: black;">Password</label></div>
                                         <div class="col-12 col-md-9"><input type="password" name="password" value="<?=$row->password?>" class="form-control" required oninvalid="this.setCustomValidity('Silahkan Diisi')" oninput="setCustomValidity('')"></div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label class=" form-control-label" style="color: black;">Upload Foto/Scan KTP</label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <input style="color: black;" type="file" id="file-input" name="foto_ktp" class="form-control-file" required oninvalid="this.setCustomValidity('Silahkan upload foto/scan KTP')" oninput="setCustomValidity('')">
+                                        </div>
                                     </div>
 
                                     <input type="hidden" name="level" value="<?php echo $level='pelaku usaha'?>" class="form-control">

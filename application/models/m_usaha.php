@@ -110,17 +110,7 @@ class m_usaha extends CI_Model {
 	{
 		if($id_pengguna == null)
 		{
-			/*return $this->db->query("SELECT tb_usaha.id_usaha, tb_usaha.nama_usaha, tb_usaha.status, tb_usaha.bergabung, tb_pengguna.id_pengguna, tb_pengguna.nama_lengkap,  tb_kecamatan.nama_kecamatan FROM tb_pengguna JOIN tb_usaha ON tb_pengguna.id_pengguna = tb_usaha.id_pengguna JOIN tb_kecamatan ON tb_kecamatan.id_kecamatan = tb_usaha.id_kecamatan");*/
-			if(isset($_GET['awal']) && isset($_GET['akhir']))
-			{
-				$awal = $_GET['awal'];
-				$akhir = $_GET['akhir'];
-				return $this->db->query("SELECT tb_usaha.*, tb_pengguna.id_pengguna, tb_pengguna.nama_lengkap, tb_kategori.nama_kategori, tb_kecamatan.nama_kecamatan FROM tb_pengguna JOIN tb_usaha ON tb_pengguna.id_pengguna = tb_usaha.id_pengguna JOIN tb_kategori ON tb_kategori.id_kategori = tb_usaha.id_kategori JOIN tb_kecamatan ON tb_kecamatan.id_kecamatan = tb_usaha.id_kecamatan WHERE tb_usaha.bergabung BETWEEN '$awal' AND '$akhir'");
-			}
-			else
-			{
-				return $this->db->query("SELECT tb_usaha.*, tb_pengguna.id_pengguna, tb_pengguna.nama_lengkap, tb_kategori.nama_kategori, tb_kecamatan.nama_kecamatan FROM tb_pengguna JOIN tb_usaha ON tb_pengguna.id_pengguna = tb_usaha.id_pengguna JOIN tb_kategori ON tb_kategori.id_kategori = tb_usaha.id_kategori JOIN tb_kecamatan ON tb_kecamatan.id_kecamatan = tb_usaha.id_kecamatan ORDER BY tb_usaha.id_usaha DESC");
-			}
+			return $this->db->query("SELECT tb_usaha.*, tb_pengguna.id_pengguna, tb_pengguna.nama_lengkap, tb_kategori.nama_kategori, tb_kecamatan.nama_kecamatan FROM tb_pengguna JOIN tb_usaha ON tb_pengguna.id_pengguna = tb_usaha.id_pengguna JOIN tb_kategori ON tb_kategori.id_kategori = tb_usaha.id_kategori JOIN tb_kecamatan ON tb_kecamatan.id_kecamatan = tb_usaha.id_kecamatan WHERE tb_usaha.status != 'diterima' ORDER BY tb_usaha.id_usaha DESC");
 		}
 		else
 		{

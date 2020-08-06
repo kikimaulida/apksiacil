@@ -213,7 +213,7 @@
 			redirect('Cpengguna');
 		}
 
-		function status_daftar()
+		/*function status_daftar()
 	    {
 	        
 	        $email_kirim = $this->input->post('email');
@@ -258,5 +258,5 @@
 	        $status=$this->input->post('status');
 	        $this->m_pengguna->status_daftar($id_pengguna,$status);
 	        redirect('Cpengguna');        
-	    }
+	    }*/
 	}

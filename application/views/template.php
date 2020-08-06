@@ -77,6 +77,9 @@
 
                     <li <?=$this->uri->segment(1) == 'Ckonfirusaha' ? 'class="active"' : ''?>>
                         <a href="<?=site_url('Ckonfirusaha')?>"> <i class="menu-icon fa fa-bell"></i>Konfirmasi Usaha<span class="count bg-danger"><?=$jml_usaha ?></span></a>
+
+                    <li <?=$this->uri->segment(1) == 'Ckonfirakun' ? 'class="active"' : ''?>>
+                        <a href="<?=site_url('Ckonfirakun')?>"> <i class="menu-icon fa fa-bell"></i>Konfirmasi Akun<span class="count bg-danger"><?=$jml_daftar ?></span></a>
                             
                     </li>
                     <h3 class="menu-title">Kelola Data</h3>
@@ -108,7 +111,7 @@
                      </li>
 
                     <li <?=$this->uri->segment(1) == 'Cpengguna' ? 'class="active"' : ''?>>
-                        <a href="<?=site_url('Cpengguna')?>"> <i class="menu-icon fa fa-users"></i> Data Pengguna <span class="count bg-danger"><?=$jml_daftar?></span></a>
+                        <a href="<?=site_url('Cpengguna')?>"> <i class="menu-icon fa fa-users"></i> Data Pengguna</a>
                     </li>
 
                     <li <?=$this->uri->segment(1) == 'Csaran' ? 'class="active"' : ''?>>

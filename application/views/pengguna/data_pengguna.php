@@ -44,21 +44,7 @@
                               <td><?php echo $nama_lengkap;?></td>
                               <td><?php echo $username;?></td>
                               <td><?php echo $level;?></td>
-                              <td>
-                                <?php 
-                                  if ($status == 'menunggu konfirmasi') 
-                                  { ?>
-                                      <button type="button" data-toggle="modal" data-whatever="@getbootstrap" data-target="#terima<?php echo $id_pengguna;?>" class="btn btn-success btn-sm">Terima</button>
-                                      <button type="button" data-toggle="modal" data-whatever="@getbootstrap" data-target="#tolak<?php echo $id_pengguna;?>" class="btn btn-danger btn-sm">Tolak</button>
-                                  <?php }
-                                  else if ($status == 'diterima') { ?>
-                                    <?php echo "Diterima"; ?>
-                                  <?php } 
-                                  else { ?>
-                                    <?php echo "Ditolak"; ?>
-                                  <?php } ?>
-                              </td>
-
+                              <td><?php echo $status;?></td>
 
                               <td class="text-center" width="270px">
                                 <a href="<?=site_url('cpengguna/detail_pengguna/'. $id_pengguna)?>" class="btn btn-info btn-sm"><i class="fa fa-eye"> Detail</i></button></a>
@@ -76,69 +62,4 @@
         </div>
     </div><!-- .animated -->
 </div><!-- .content -->
-
-<?php
-  foreach ($row->result_array() as $data):
-      $id_pengguna=$data['id_pengguna'];
-      $nama_lengkap=$data['nama_lengkap'];
-      $status=$data['status'];
-?>
-<div class="modal fade" id="terima<?php echo $id_pengguna?>" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
-  <div class="modal-dialog modal-sm" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h6 class="modal-title" id="staticModalLabel">Konfirmasi Terima</h6>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <form class="form-horizontal" method="post" action="<?=site_url('cpengguna/status_daftar')?>">
-            <div class="modal-body">
-              <center><p>Terima <b><?php echo $nama_lengkap;?></b> ?</p></center> 
-              <input type="hidden" name="id_pengguna" value="<?php echo $id_pengguna;?>" readonly="readonly">
-              <input type="hidden" name="email" value="<?php echo $data['email'];?>" readonly="readonly">
-              <input type="hidden" name="status" value="diterima" readonly="readonly" class="form-control col-md-7 col-xs-12">
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-info">OK</button>
-            </div>
-          </form>
-      </div>
-  </div>
-</div>
-<?php endforeach;?>
-
-<?php
-  foreach ($row->result_array() as $data):
-      $id_pengguna=$data['id_pengguna'];
-      $nama_lengkap=$data['nama_lengkap'];
-      $status=$data['status'];
-?>
-<div class="modal fade" id="tolak<?php echo $id_pengguna?>" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
-  <div class="modal-dialog modal-sm" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h6 class="modal-title" id="staticModalLabel">Konfirmasi Penolakan</h6>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <form class="form-horizontal" method="post" action="<?=site_url('cpengguna/status_daftar')?>">
-            <div class="modal-body">
-              <center><p>Tolak <b><?php echo $nama_lengkap;?></b> ?</p></center> 
-              <input type="hidden" name="id_pengguna" value="<?php echo $id_pengguna;?>" readonly="readonly">
-              <input type="hidden" name="status" value="ditolak" readonly="readonly" class="form-control col-md-7 col-xs-12">
-              <input type="hidden" name="email" value="<?php echo $data['email'];?>" readonly="readonly">
-              <div class="row form-group">
-                <div class="col-12 col-md-12"><textarea name="pesan" rows="3" class="form-control" placeholder="Masukkan alasan penolakan"></textarea></div>
-              </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-info">OK</button>
-            </div>
-          </form>
-      </div>
-  </div>
-</div>
-<?php endforeach;?>
 

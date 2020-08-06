@@ -21,6 +21,20 @@ class m_pengguna extends CI_Model {
 		{
 			$this->db->where('id_pengguna', $id_pengguna);
 		}
+		$this->db->where('status', 'diterima');
+		$this->db->order_by('id_pengguna', 'DESC');
+		$query = $this->db->get();
+		return $query;
+	}
+
+	public function konfir_akun($id_pengguna = null)
+	{
+		$this->db->from('tb_pengguna');
+		if($id_pengguna != null)
+		{
+			$this->db->where('id_pengguna', $id_pengguna);
+		}
+		$this->db->where('status !=','diterima');
 		$this->db->order_by('id_pengguna', 'DESC');
 		$query = $this->db->get();
 		return $query;

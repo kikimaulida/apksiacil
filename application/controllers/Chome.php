@@ -90,6 +90,19 @@ class Chome extends CI_Controller {
 				redirect('chome/daftar');
 			}
 
+			if(@$_FILES['foto_ktp']['name'] != null)
+			{
+				if ($this->upload->do_upload('foto_ktp'))
+				{
+					$post['foto_ktp'] = $this->upload->data('file_name');
+				}
+				else
+				{
+					$error = $this->upload->display_errors();
+					redirect('auth/login');
+				}
+			}
+
 			if(@$_FILES['foto_pengguna']['name'] != null)
 			{
 				if ($this->upload->do_upload('foto_pengguna'))
