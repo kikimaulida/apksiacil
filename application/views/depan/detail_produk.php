@@ -134,6 +134,14 @@
               </div>
               <div class="product__details__price"><?=$data->harga?></div>
               <p><?=$data->deskripsi_produk?></p>
+              <div class="product__details__quantity">
+                <div class="quantity">
+                  <div class="pro-qty">
+                      <input type="text" value="1">
+                  </div>
+                </div>
+              </div>
+              <a href="<?=site_url('chome/tambah_keranjang/'. $data->id_produk)?>" class="primary-btn" style="color: white;">ADD TO CARD</a>
               <ul>
                   <li><b style="color: black;">Status Produk</b> <span><?=$data->status_produk?></span></li>
                   <li><b style="color: black;">Usaha/Toko</b> <span><?=$data->nama_usaha?></span>

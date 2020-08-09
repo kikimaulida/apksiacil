@@ -90,7 +90,7 @@
                                     </div>
                                     <div class="product__item__text">
                                         <h6><b style="color: black;"><?=$data->nama_produk?></b></h6>
-                                        <h6><b style="color: #dd2222;"><?=$data->harga?></b></h6>
+                                        <h6><b style="color: #dd2222;">Rp. <?php echo number_format($data->harga, 0,',','.')  ?></b></h6> 
                                         <h6><i class="fa fa-map-marker">&nbsp;</i><?=$data->nama_kecamatan?></h6>
                                     </div>
                                 </div>    

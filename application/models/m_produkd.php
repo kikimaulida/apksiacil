@@ -50,4 +50,16 @@ class m_produkd extends CI_Model {
 			return $this->db->query("SELECT tb_produk.*, tb_usaha.id_kecamatan, tb_kecamatan.nama_kecamatan FROM tb_produk JOIN tb_usaha ON tb_usaha.id_usaha = tb_produk.id_usaha JOIN tb_kecamatan ON tb_usaha.id_kecamatan = tb_kecamatan.id_kecamatan")->result();
 		}		
 	}
+
+	public function find($id)
+	{
+		$result = $this->db->where('id_produk', $id)
+							->limit(1)
+							->get('tb_produk');
+		if($result->num_rows() > 0){
+			return $result->row();
+		}else{
+			return array();
+		}
+	}
 }

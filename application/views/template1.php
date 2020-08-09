@@ -165,7 +165,7 @@
                         <a href="<?=base_url()?>/assets1/./index.html" ><img src="<?=base_url()?>/assets/images/logo4.png" style="height: 60px;" alt=""></a>
                     </div>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
                             <li <?=$this->uri->segment(1) == 'Chome' || $this->uri->segment(1) == '' ? 'class="active"' : ''?>><a href="<?=site_url('Chome')?>">Home</a></li>
@@ -176,6 +176,19 @@
                         </ul>
                     </nav>
                 </div> 
+
+                <div class="col-lg-3">
+                    <div class="header__cart">
+                        <ul>
+                            <li style="color: white">
+                                <?php
+                                $keranjang = 'Keranjang Belanja: '.$this->cart->total_items(). ' items' ?>
+                                <?php echo anchor('chome/detail_keranjang', $keranjang) ?>
+                            </li>
+                            <!-- <li><a href="#"><i class="fa fa-shopping-cart" style="color: white;"></i> <span><?php $this->cart->total_items() ?></span></a></li> -->
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>

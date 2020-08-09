@@ -538,7 +538,7 @@ ol {
 	border-radius: 50%;
 	position: absolute;
 	top: 0;
-	right: -12px;
+	right: -15px;
 }
 
 .header__cart .header__cart__price {
@@ -1731,8 +1731,8 @@ ol {
 
 .product__details__text ul {
 	border-top: 1px solid #ebebeb;
-	padding-top: 40px;
-	margin-top: 50px;
+	padding-top: 20px;
+	margin-top: 20px;
 }
 
 .product__details__text ul li {

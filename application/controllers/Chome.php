@@ -13,7 +13,30 @@ class Chome extends CI_Controller {
 		$data['row1'] = $this->m_kecamatan->tampil_kecamatan();
 		$data['row2'] = $this->model_slider->get_slider();
 		$data['row3'] = $this->m_kategori->tampil_kategori();
+		
 		$this->template1->load('template1', 'depan/home', $data);
+	}
+
+	public function tambah_keranjang($id)
+	{
+		$produk = $this->m_produkd->find($id);
+		$data = array(
+			'id' => $produk->id_produk,
+			'qty' => 1,
+			'price' => $produk->harga,
+			'name' => $produk->nama_produk, 
+
+
+		);
+		$this->cart->insert($data);
+		redirect('Chome');
+
+	}
+
+	public function detail_keranjang()
+	{
+		
+		$this->template1->load('template1', 'depan/detail_keranjang');
 	}
 
 	public function tampilproduk()
