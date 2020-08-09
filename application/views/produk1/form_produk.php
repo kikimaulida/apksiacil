@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="row form-group">
-                    <div class="col-md-3"><label class=" form-control-label">Harga</label></div>
+                    <div class="col-md-3"><label class=" form-control-label">Harga Satuan</label></div>
                     <div class="col-12 col-md-9"><input type="text" name="harga" value="<?=$row->harga?>" class="form-control" required></div>
                 </div>
 
@@ -69,8 +69,13 @@
                     </div>
                 </div>
 
+                 <div class="row form-group">
+                    <div class="col-md-3"><label class=" form-control-label">Jumlah/Stok Produk</label></div>
+                    <div class="col-12 col-md-9"><input type="text" name="status_produk" value="<?=$row->status_produk?>" class="form-control" required></div>
+                </div>
+
                  <!-- PAGE TAMBAH -->
-                <?php if($page == 'tambah') { ?>
+               <!--  <?php if($page == 'tambah') { ?>
                 <div class="row form-group">
                     <div class="col-md-3"><label class=" form-control-label">Status</label></div>
                     <div class="col-12 col-md-9"> 
@@ -83,10 +88,10 @@
                          </select>
                     </div>
                 </div>
-                <?php } ?>
+                <?php } ?> -->
 
                 <!-- PAGE UBAH -->
-                <?php if($page == 'ubah') { ?>
+               <!--  <?php if($page == 'ubah') { ?>
                 <div class="row form-group">
                     <div class="col-md-3"><label class=" form-control-label">status</label></div>
                     <div class="col-12 col-md-9">
@@ -99,7 +104,7 @@
                          </select>
                     </div>
                 </div>
-                <?php } ?>
+                <?php } ?> -->
 
                 <?php if($page == 'tambah') { ?>
                 <!-- Input tanggal otomatis -->
