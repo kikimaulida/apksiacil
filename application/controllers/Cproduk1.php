@@ -14,7 +14,7 @@
 		public function index() 
 		{
 			$level = $this->session->userdata('level');
-			if ($level == 'admin')
+			if ($level != 'pelaku usaha')
 			{
 				$id_pengguna = '';
 			}

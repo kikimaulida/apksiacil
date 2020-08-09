@@ -65,7 +65,7 @@
                         <button type="button" class="btn btn-warning">Batal</button>
                     </a> -->
 
-                    <?php if($this->session->userdata('level') == 'admin') { ?>
+                    <?php if($this->session->userdata('level') != 'pelaku usaha') { ?>
                     <a href="<?=site_url('dashboard')?>">
                         <button type="button" class="btn btn-warning">Batal</button>
                     </a>

@@ -8,9 +8,11 @@
                         <strong class="card-title">Data Produk</strong>
                     </div>
                     <div class="card-body">
+                      <?php if($this->session->userdata('level') != 'kabid') { ?>
                         <a href="<?=site_url('Cproduk1/tambah/'. $id_usaha. '/'. $id_pengguna)?>">
                             <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Tambah Data</button>
                         </a>
+                      <?php } ?>
                         <a href="<?=site_url('Cproduk1')?>">
                             <button type="button" class="btn btn-secondary btn-sm"><i class="fa fa-reply-all"></i>&nbsp; Kembali</button>
                         </a>
@@ -39,12 +41,21 @@
                                   <td><?=$data->status_produk?></td>
                                   <td><?=date('d-m-Y', strtotime($data->tgl_unggah))?></td>
                                   
+                                  <?php if($this->session->userdata('level') != 'kabid') { ?>
                                   <td class="text-center" width="230px">
                                     <a href="<?=site_url('cproduk1/detail_produk/'. $data->id_produk)?>" class="btn btn-info btn-sm"><i class="fa fa-eye"> Detail</i></button></a>
                                     <a href="<?=site_url('cproduk1/ubah/'. $data->id_produk. '/'. $data->id_usaha)?>" class="btn btn-success btn-sm"><i class="fa fa-pencil"> Ubah</i></button></a>
                                     <a href="<?=site_url('cproduk1/hapus_produk/'. $data->id_produk)?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')" class="btn btn-danger btn-sm"><i class="fa fa-trash-o "> Hapus</i></button></a>
                                     
                                   </td>
+                                  <?php } ?>
+
+                                  <?php if($this->session->userdata('level') == 'kabid') { ?>
+                                  <td class="text-center" width="150px">
+                                    <a href="<?=site_url('cproduk1/detail_produk/'. $data->id_produk)?>" class="btn btn-info btn-sm"><i class="fa fa-eye"> Detail</i></button></a>
+                                  </td>
+                                  <?php } ?>
+
                                 </tr>
                                 <?php 
                                   }

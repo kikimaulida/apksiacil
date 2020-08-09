@@ -16,7 +16,7 @@
 			/*$data['row'] = $this->m_produk->tampil_produk();
 			$this->template->load('template', 'produk/data_produk', $data);*/
 			$level = $this->session->userdata('level');
-			if ($level == 'admin')
+			if ($level != 'pelaku usaha')
 			{
 				$id_pengguna = '';
 			}

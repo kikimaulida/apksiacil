@@ -65,7 +65,7 @@
                     <img src="<?=base_url('uploads/pengguna/'.$a['foto_pengguna'])?>" class="rounded-circle mx-auto d-block" style="width: 100px; height: 100px;" />
 
                     
-                    <h5 class="menu-title" align="center" style="color: white; padding-top: 0" ><?=ucfirst($this->fungsi->pengguna_login()->nama_lengkap)?></h5> <br>
+                    <h5 class="menu-title" align="center" style="color: white; padding-top: 0" ><?=ucfirst($this->fungsi->pengguna_login()->nama_lengkap)?><br></h5> <br>
                     <li <?=$this->uri->segment(1) == 'Dashboard' || $this->uri->segment(1) == '' ? 'class="active"' : ''?>>
                         <a href="<?=site_url('Dashboard')?>">
                         <i class="menu-icon fa fa-tachometer"></i> Beranda</a>
@@ -75,15 +75,17 @@
                         <a href="<?=site_url('Chome')?>"> <i class="menu-icon fa fa-home"></i> Halaman Depan</a>
                     </li>
 
-                    <li <?=$this->uri->segment(1) == 'Ckonfirusaha' ? 'class="active"' : ''?>>
-                        <a href="<?=site_url('Ckonfirusaha')?>"> <i class="menu-icon fa fa-bell"></i>Konfirmasi Usaha<span class="count bg-danger"><?=$jml_usaha ?></span></a>
+                    <?php if($this->session->userdata('level') == 'admin') { ?>
+                    <!-- <li <?=$this->uri->segment(1) == 'Ckonfirusaha' ? 'class="active"' : ''?>>
+                        <a href="<?=site_url('Ckonfirusaha')?>"> <i class="menu-icon fa fa-bell"></i>Konfirmasi Usaha<span class="count bg-danger"><?=$jml_usaha ?></span></a> -->
 
                     <li <?=$this->uri->segment(1) == 'Ckonfirakun' ? 'class="active"' : ''?>>
                         <a href="<?=site_url('Ckonfirakun')?>"> <i class="menu-icon fa fa-bell"></i>Konfirmasi Akun<span class="count bg-danger"><?=$jml_daftar ?></span></a>
                             
                     </li>
+                    <?php } ?>
                     <h3 class="menu-title">Kelola Data</h3>
-                    <?php if($this->session->userdata('level') == 'admin') { ?>
+                    <?php if($this->session->userdata('level') != 'pelaku usaha') { ?>
                     <li class="menu-item-has-children dropdown <?=$this->uri->segment(1) == 'Cusaha' || $this->uri->segment(1) == 'Cproduk1' || $this->uri->segment(1) == 'Ckategori' ? 'active' : ''?>">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cube"></i>Data Usaha Kecil</a>
                         <ul class="sub-menu children dropdown-menu">

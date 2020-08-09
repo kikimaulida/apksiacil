@@ -91,6 +91,7 @@
                         <select name="level" class="form-control" required>
                             <option value="">- Pilih -</option>
                             <option value="admin" <?=set_value('level') == "admin" ? "selected" : null?>>Admin</option>
+                            <option value="kabid" <?=set_value('level') == "kabid" ? "selected" : null?>>Kabid</option>
                             <option value="pelaku usaha" <?=set_value('level') == "pelaku usaha" ? "selected" : null?>>Pelaku Usaha</option>
                             <option value="user" <?=set_value('level') == "user" ? "selected" : null?>>User</option>
                          </select>

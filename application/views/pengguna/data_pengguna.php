@@ -7,11 +7,13 @@
                     <div class="card-header">
                         <strong class="card-title">Data Pengguna</strong>
                     </div>
+                    <?php if($this->session->userdata('level') != 'kabid') { ?>
                     <div class="card-body">
                         <a href="<?=site_url('Cpengguna/tambah')?>">
                             <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Tambah Data</button>
                         </a>
                     </div>
+                    <?php } ?>
                     
                     <div class="card-body">
                       <div class="table-responsive">
@@ -46,11 +48,19 @@
                               <td><?php echo $level;?></td>
                               <td><?php echo $status;?></td>
 
-                              <td class="text-center" width="270px">
+                              <?php if($this->session->userdata('level') != 'kabid') { ?>
+                                <td class="text-center" width="270px">
                                 <a href="<?=site_url('cpengguna/detail_pengguna/'. $id_pengguna)?>" class="btn btn-info btn-sm"><i class="fa fa-eye"> Detail</i></button></a>
                                   <a href="<?=site_url('cpengguna/ubah/'. $id_pengguna)?>" class="btn btn-success btn-sm"><i class="fa fa-pencil"> Ubah</i></button></a>
                                   <a href="<?=site_url('cpengguna/hapus_pengguna/'. $id_pengguna)?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')" class="btn btn-danger btn-sm"><i class="fa fa-trash-o "> Hapus</i></button></a>
                               </td>  
+                              <?php } ?>
+
+                              <?php if($this->session->userdata('level') == 'kabid') { ?>
+                                <td class="text-center" width="150px">
+                                <a href="<?=site_url('cpengguna/detail_pengguna/'. $id_pengguna)?>" class="btn btn-info btn-sm"><i class="fa fa-eye"> Detail</i></button></a>
+                              </td>  
+                              <?php } ?>
                               </tr>
                             <?php endforeach;?>                       
                           </tbody>

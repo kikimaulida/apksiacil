@@ -13,9 +13,10 @@
                           <a href="<?=site_url('cproduk1/tampil_produk/'. $data->id_usaha. '/'. $data->id_pengguna)?>">
                               <button type="button" class="btn btn-secondary btn-sm" style="margin-top: 10px""><i class="fa fa-reply-all"></i>&nbsp; Kembali</button>
                           </a>
+                          <?php if($this->session->userdata('level') != 'kabid') { ?>
                           <a href="<?=site_url('cproduk1/tampil_komentar/'. $data->id_produk)?>">
                               <button type="button" class="btn btn-info btn-sm" style="margin-left: 10px; margin-top: 10px""><i class="fa fa-comments-o"></i>&nbsp; Lihat Komentar</button>
-                          </a>
+                          </a> <?php } ?>
                         <?php 
                         }
                       ?> 
@@ -101,7 +102,9 @@
                               <tr>
                                 <th>No </th>
                                 <th>Foto Produk</th>
+                                <?php if($this->session->userdata('level') != 'kabid') { ?>
                                 <th>Aksi </th>
+                                <?php } ?>
 
                               </tr>
                             </thead>
@@ -118,10 +121,10 @@
                                     }
                                     ?>    
                                   </td>
+                                  <?php if($this->session->userdata('level') != 'kabid') { ?>
                                   <td class="text-center" width="230px">
                                     <a href="<?=site_url('cproduk1/hapus_foto/'. $data->id_foto)?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')" class="btn btn-danger btn-sm"><i class="fa fa-trash-o "> Hapus</i></button></a>
-                                    
-                                  </td>
+                                  </td> <?php } ?>
                                 </tr>
                                 <?php 
                                   }

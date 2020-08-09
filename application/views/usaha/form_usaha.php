@@ -102,9 +102,14 @@
                 </div>
 
                 <!-- PAGE TAMBAH -->
+
                 <?php if($page == 'tambah') { ?>
-                    <input type="hidden" name="status" value="<?php echo $status='menunggu konfirmasi'?>" class="form-control" readonly="readonly" required>
+                    <input type="hidden" name="status" value="<?php echo $status='diterima'?>" class="form-control" readonly="readonly" required>
                 <?php } ?>
+
+               <!--  <?php if($page == 'tambah') { ?>
+                    <input type="hidden" name="status" value="<?php echo $status='menunggu konfirmasi'?>" class="form-control" readonly="readonly" required>
+                <?php } ?> -->
 
                 <!-- PAGE UBAH -->
                 <?php if($this->session->userdata('level') == 'admin') { ?>

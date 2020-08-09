@@ -7,7 +7,7 @@
           <div class="card-header">
             <strong class="card-title">Data Usaha</strong>
           </div>
-            <?php if($this->session->userdata('level') == 'admin') { ?>
+            <?php if($this->session->userdata('level') != 'pelaku usaha') { ?>
             <div class="card-body card-block">
               <form  method="get" class="form-horizontal">
                 <div class="row form-group">
@@ -51,11 +51,13 @@
             </div>
             <?php } ?>
             <div class="card-body">
+              <?php if($this->session->userdata('level') != 'kabid') { ?>
                 <a href="<?=site_url('Cusaha/tambah')?>">
                     <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Tambah Data</button>
                 </a>
+              <?php } ?>
                 <?php 
-                if($this->session->userdata('level') == 'admin') 
+                if($this->session->userdata('level') != 'pelaku usaha') 
                 { ?> 
                   <?php
                     if(isset($_GET['awal']) && isset($_GET['akhir']))
@@ -130,11 +132,20 @@
 
                       <td><?php echo date('d-m-Y', strtotime($bergabung));?></td>
 
+                      <?php if($this->session->userdata('level') != 'kabid') { ?>
                       <td class="text-center" width="270px">
                         <a href="<?=site_url('cusaha/detail_usaha/'. $id_usaha)?>" class="btn btn-info btn-sm"><i class="fa fa-eye"> Detail</i></button></a>
                           <a href="<?=site_url('cusaha/ubah/'. $id_usaha)?>" class="btn btn-success btn-sm"><i class="fa fa-pencil"> Ubah</i></button></a>
                           <a href="<?=site_url('cusaha/hapus_usaha/'. $id_usaha)?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')" class="btn btn-danger btn-sm"><i class="fa fa-trash-o "> Hapus</i></button></a>
                       </td>  
+                      <?php } ?>
+
+                      <?php if($this->session->userdata('level') == 'kabid') { ?>
+                      <td class="text-center" width="150px">
+                        <a href="<?=site_url('cusaha/detail_usaha/'. $id_usaha)?>" class="btn btn-info btn-sm"><i class="fa fa-eye"> Detail</i></button></a>
+                      </td>  
+                      <?php } ?>
+
                       </tr>
                     <?php endforeach;?>                       
                   </tbody>

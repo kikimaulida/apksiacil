@@ -31,7 +31,7 @@ class Auth extends CI_Controller {
 					$ci->load->library('fungsi');
 					if ($ci->fungsi->pengguna_login()->level == "user") {
 					 	redirect('Chome');
-					}elseif ($ci->fungsi->pengguna_login()->level == "admin" || "pelaku usaha") {
+					}elseif ($ci->fungsi->pengguna_login()->level != "user") {
 						echo "<script>
 						alert('Selamat, login berhasil');
 						window.location='".site_url("Dashboard")."' </script>";

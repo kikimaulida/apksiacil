@@ -72,6 +72,10 @@
     </div>
 </div>
 
+<?php
+  foreach ($row->result_array() as $data):
+      $foto=$data['foto_pengguna'];
+?>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -89,7 +93,15 @@
                 <label for="file-input" class=" form-control-label">Pilih Foto</label>
             </div>
             <div class="col-12 col-md-9">
-                <input type="file" id="file-input" name="foto"   class="form-control-file">
+                <?php
+                 if ($foto = 'Tidak Ada')
+                 { ?>
+                    <input type="file" id="file-input" name="foto"   class="form-control-file" required oninvalid="this.setCustomValidity('Silahkan Upload Foto')" oninput="setCustomValidity('')">
+                 <?php }
+                 else { ?>
+                    <input type="file" id="file-input" name="foto"   class="form-control-file">
+                <?php } ?>
+                
                 <input type="hidden" class="form-control" value="<?php echo $this->session->userdata('id_pengguna')?>" id="recipient-name">
             </div>
         </div>
@@ -102,3 +114,4 @@
     </div>
   </div>
 </div>
+<?php endforeach;?>

@@ -32,11 +32,11 @@
 			$this->template->load('template', 'usaha/detail_konfir', $data);
 		}
 
-		function status()
+		/*function status()
 	    {
 	        $id_usaha=$this->input->post('id_usaha');
 	        $status=$this->input->post('status');
 	        $this->m_usaha->status($id_usaha,$status);
 	        redirect('Ckonfirusaha');        
-	    }
+	    }*/
 	}

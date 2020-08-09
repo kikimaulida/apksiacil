@@ -23,7 +23,7 @@
                 <div class="card">
                     <div class="card-body"></div>
                       <div class="row" style="margin-left: 5px; margin-right: 5px;">
-                        <?php if($this->session->userdata('level') == 'admin') { ?>   
+                        <?php if($this->session->userdata('level') != 'pelaku usaha') { ?>   
                         <div class="col-lg-3 col-md-6">
                             <div class="card">
                                 <div class="card-body bg-flat-color-1">

@@ -13,9 +13,9 @@
                           <a href="<?=site_url('cpengguna')?>">
                               <button type="button" class="btn btn-secondary btn-sm" style="margin-top: 10px""><i class="fa fa-reply-all"></i>&nbsp; Kembali</button>
                           </a>
-        
+                        <?php if($this->session->userdata('level') != 'kabid') { ?>
                           <a href="<?=site_url('cpengguna/ubah/'. $data->id_pengguna)?>"> <button class="btn btn-success btn-sm" style="margin-left: 10px; margin-top: 10px"><i class="fa fa-pencil"></i>&nbsp; Ubah</button></a>
-                          <a href="<?=site_url('cpengguna/hapus_produk/'. $data->id_pengguna)?>"> <button onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')" class="btn btn-danger btn-sm" style="margin-left: 10px; margin-top: 10px""><i class="fa fa-trash-o "></i>&nbsp; Hapus</button></a>
+                          <a href="<?=site_url('cpengguna/hapus_produk/'. $data->id_pengguna)?>"> <button onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')" class="btn btn-danger btn-sm" style="margin-left: 10px; margin-top: 10px""><i class="fa fa-trash-o "></i>&nbsp; Hapus</button></a>  <?php } ?>
                         <?php 
                         }
                       ?> 
