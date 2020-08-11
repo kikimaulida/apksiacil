@@ -24,6 +24,7 @@ class m_invoice extends CI_Model {
 			$data = array(
 				'id_invoice'	=> $id_invoice,
 				'id_produk'		=> $item['id'],
+				/*'id_usaha'		=> $item['idu'],*/
 				'nama_produk'	=> $item['name'],
 				'jumlah'		=> $item['qty'],
 				'harga'			=> $item['price'],

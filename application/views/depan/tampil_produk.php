@@ -86,6 +86,7 @@
                                     <div class="product__item__pic set-bg" data-setbg="<?=base_url('uploads/produk/'.$data->foto_produk)?>">
                                         <ul class="product__item__pic__hover">
                                             <li><a href="<?=site_url('chome/detail_produk/'. $data->id_produk)?>"><i class="fa fa-list"></i></a></li>
+                                            <li><a href="<?=site_url('chome/tambah_keranjang/'. $data->id_produk)?>"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
                                     <div class="product__item__text">

@@ -20,12 +20,14 @@ class Chome extends CI_Controller {
 	public function tambah_keranjang($id)
 	{
 		$produk = $this->m_produkd->find($id);
+		$id_pengguna = $id_pengguna = $this->session->userdata('id_pengguna');
 		$data = array(
 			'id' => $produk->id_produk,
+			/*'idu' => $produk->id_usaha,*/
+			/*'idu' => $id_pengguna,*/
 			'qty' => 1,
 			'price' => $produk->harga,
 			'name' => $produk->nama_produk, 
-
 
 		);
 		$this->cart->insert($data);

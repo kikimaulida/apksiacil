@@ -131,6 +131,13 @@
                             if($this->session->userdata('id_pengguna')){
                         ?>
                         <div class="header__top__right__language">
+                            <div> 
+                                <?php
+                                $keranjang = 'Keranjang Belanja: '.$this->cart->total_items(). ' items' ?>
+                                <?php echo anchor('chome/detail_keranjang', $keranjang) ?>
+                            </div>
+                        </div>
+                        <div class="header__top__right__language">
                             <img src="img/language.png" alt=""><i class="fa fa-user" style="color: black;"></i>&nbsp; 
                             <div style="color: black;"><?=ucfirst($this->fungsi->pengguna_login()->nama_lengkap)?></div>
                             <span class="arrow_carrot-down"></span>
@@ -143,6 +150,7 @@
                                 <li><a href="<?=site_url('Auth/logout')?>">Logout</a></li>
                             </ul>
                         </div>
+                        
                         <?php } 
                         else{ ?>
                         <div class="header__top__right__social">
@@ -179,14 +187,13 @@
 
                 <div class="col-lg-3">
                     <div class="header__cart">
-                        <ul>
+                       <!--  <ul>
                             <li style="color: white">
                                 <?php
                                 $keranjang = 'Keranjang Belanja: '.$this->cart->total_items(). ' items' ?>
                                 <?php echo anchor('chome/detail_keranjang', $keranjang) ?>
                             </li>
-                            <!-- <li><a href="#"><i class="fa fa-shopping-cart" style="color: white;"></i> <span><?php $this->cart->total_items() ?></span></a></li> -->
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
             </div>

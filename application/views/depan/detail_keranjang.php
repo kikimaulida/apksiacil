@@ -37,8 +37,9 @@
                                  
                                 <tr>
                                     <td class="shoping__cart__item">
-                                        <!-- <img src="<?php echo base_url('uploads/produk/'.$items['image']); ?>" alt=""> -->
+                                        <!-- <img src="<?php echo base_url('uploads/produk/'.$items['foto_produk']); ?>" alt=""> -->
                                         <h5><?php echo $items['name'] ?></h5>
+                                        <!-- <h5><?php echo $items['idu'] ?></h5> -->
                                     </td>
                                     <td class="shoping__cart__price">
                                         Rp. <?php echo number_format($items['price'], 0,',','.')  ?>
@@ -69,8 +70,8 @@
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
                         <a href="<?=site_url('chome/tampilproduk')?>" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
-                        <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                            Upadate Cart</a>
+                       <!--  <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
+                            Upadate Cart</a> -->
                     </div>
                 </div>
                 <div class="col-lg-3">

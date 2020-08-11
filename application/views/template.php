@@ -37,11 +37,18 @@
     <link rel="stylesheet" href="<?=base_url()?>/assets/vendors/selectFX/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="<?=base_url()?>/assets/vendors/chosen/chosen.min.css">
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+
+   <style type="text/css">
+       #mapid{
+        height: 500px;
+       }
+   </style>
+
 </head>
-
 <body>
-
-
     <!-- Left Panel -->
 
     <aside id="left-panel" class="left-panel">
@@ -83,6 +90,10 @@
                         <a href="<?=site_url('Ckonfirakun')?>"> <i class="menu-icon fa fa-bell"></i>Konfirmasi Akun<span class="count bg-danger"><?=$jml_daftar ?></span></a>
                             
                     </li>
+
+                    <li <?=$this->uri->segment(1) == 'Cmap' ? 'class="active"' : ''?>>
+                        <a href="<?=site_url('Cmap')?>"> <i class="menu-icon fa fa-flag"></i> MAP</a>
+                     </li>
                     <?php } ?>
                     <h3 class="menu-title">Kelola Data</h3>
                     <?php if($this->session->userdata('level') != 'pelaku usaha') { ?>
@@ -243,5 +254,31 @@
     </script>
 
 </body>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+
+   <script type="text/javascript">
+       var mymap = L.map('mapid').setView([-3.7694047, 114.8092691], 10);
+
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+              attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+              maxZoom: 18,
+              id: 'mapbox.streets',
+              accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'}).addTo(mymap);
+        var marker = L.marker([-3.8040346, 114.7666953]).addTo(mymap).bindPopup("<b>Ruang Terbuka Hijau</b><br>Lat: -3.8040346 <br> Lng: 114.7666953");
+
+       /* $.getJSON("<?=base_url()?>Cmap/tampilmap", function(data){
+            $.each(data, function(i, field){
+
+                var lat = parseFloat(data[i].lat);
+                var lng = parseFloat(data[i].lng);
+
+                L.marker([lat, lng]).addTo(mymap).bindPopup("<b>data[i].usaha</b>");
+            });
+        });*/
+        
+        
+   </script>
 
 </html>
