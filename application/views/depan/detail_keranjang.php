@@ -56,7 +56,7 @@
                                         Rp. <?php echo number_format($items['subtotal'], 0,',','.')  ?>
                                     </td>
                                     <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
+                                        <a href="<?=base_url('chome/hapus_keranjang/'. $items['rowid'] )?> "> <span class="icon_close"></span></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -82,7 +82,7 @@
                         <ul>
                             <li>Total <span> Rp. <?php echo number_format($this->cart->total(), 0,',','.')  ?></span></li>
                         </ul>
-                        <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
+                        <a href="<?=site_url('chome/pembayaran')?>" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>
                 </div>
             </div>

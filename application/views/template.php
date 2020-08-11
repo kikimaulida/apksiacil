@@ -129,6 +129,10 @@
                     <li <?=$this->uri->segment(1) == 'Cproduk1' ? 'class="active"' : ''?>>
                         <a href="<?=site_url('Cproduk1')?>"><i class=" menu-icon fa fa-tag"></i> Produk Saya</a>
                     </li>
+
+                     <li <?=$this->uri->segment(1) == 'Cinvoice' ? 'class="active"' : ''?>>
+                        <a href="<?=site_url('Cinvoice')?>"><i class=" menu-icon fa fa-tag"></i> Pesanan</a>
+                    </li>
                     <?php } ?>
                 </ul>
             </div><!-- /.navbar-collapse -->

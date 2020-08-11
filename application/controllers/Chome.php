@@ -5,7 +5,7 @@ class Chome extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model(['m_produk', 'm_produkd', 'm_usaha', 'm_usahad', 'm_kecamatan', 'm_kategori', 'm_pengguna', 'model_slider', 'm_komentar', 'm_balaskomen', 'm_rating', 'm_saran']);
+		$this->load->model(['m_produk', 'm_produkd', 'm_usaha', 'm_usahad', 'm_kecamatan', 'm_kategori', 'm_pengguna', 'model_slider', 'm_komentar', 'm_balaskomen', 'm_rating', 'm_saran', 'm_invoice']);
 	}
 
 	public function index()
@@ -29,14 +29,38 @@ class Chome extends CI_Controller {
 
 		);
 		$this->cart->insert($data);
-		redirect('Chome');
-
+		redirect('Chome/tampilproduk');
 	}
 
 	public function detail_keranjang()
 	{
 		
 		$this->template1->load('template1', 'depan/detail_keranjang');
+	}
+
+	public function hapus_keranjang($id)
+	{
+		$data = array(
+                'rowid' => $this->uri->segment(3),
+                'qty'   => 0);
+        $this->cart->update($data);
+		$this->template1->load('template1', 'depan/detail_keranjang');
+	}
+
+	public function pembayaran()
+	{
+		$this->template1->load('template1', 'depan/pembayaran');
+	}
+
+	public function proses_pesanan()
+	{
+		$proses = $this->m_invoice->index();
+		if($proses){
+		$this->cart->destroy();
+		$this->template1->load('template1', 'depan/proses_pesanan');
+		} else {
+			echo "Maaf, Pesanan Anda Gagal diproses!";
+		}
 	}
 
 	public function tampilproduk()
