@@ -33,6 +33,8 @@
 			$usaha->nama_usaha = null;
 			$usaha->deskripsi = null;
 			$usaha->alamat = null;
+			$usaha->lat = null;
+			$usaha->lng = null;
 			$usaha->jam_operasional = null;
 			$usaha->telepon = null;
 			$usaha->foto_usaha = null;

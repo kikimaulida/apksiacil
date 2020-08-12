@@ -5,7 +5,7 @@ class Chome extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model(['m_produk', 'm_produkd', 'm_usaha', 'm_usahad', 'm_kecamatan', 'm_kategori', 'm_pengguna', 'model_slider', 'm_komentar', 'm_balaskomen', 'm_rating', 'm_saran', 'm_invoice']);
+		$this->load->model(['m_produk', 'm_produkd', 'm_usaha', 'm_usahad', 'm_kecamatan', 'm_kategori', 'm_pengguna', 'model_slider', 'm_komentar', 'm_balaskomen', 'm_rating', 'm_saran', 'm_invoice', 'm_map']);
 	}
 
 	public function index()
@@ -99,6 +99,7 @@ class Chome extends CI_Controller {
 	{
 		$data['row'] = $this->m_usaha->getusaha($id_usaha);
 		$data['row1'] = $this->m_produk->getproduk1($id_usaha);
+		$data['map'] = $this->m_map->tampil_map($id_usaha);
 		$this->template1->load('template1', 'depan/detail_usaha', $data);
 	}
 

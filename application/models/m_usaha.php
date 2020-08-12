@@ -46,6 +46,8 @@ class m_usaha extends CI_Model {
 			'deskripsi' => $post['deskripsi'],
 			'alamat' => $post['alamat'],
 			'id_kecamatan' => $post['kecamatan'],
+			'lat' => $post['lat'],
+			'lng' => $post['lng'],
 			'jam_operasional' => $post['jam_operasional'],
 			'telepon' => $post['telepon'],
 			'foto_usaha' => $post[ 'foto_usaha'],

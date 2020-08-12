@@ -69,6 +69,8 @@ foreach ($row->result() as $key => $data) {
 </section>
 <?php } ?>
 
+<div id="mapid"></div>
+
 <section class="featured spad">
     <div class="container">
         <div class="row">

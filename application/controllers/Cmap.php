@@ -7,18 +7,13 @@
 		{
 			parent::__construct();
 			
-			$this->load->model(['m_kategori', 'm_notif']);
+			$this->load->model(['m_map', 'm_notif']);
 		}
 
 		public function index() 
 		{
-			$this->template->load('template', 'map');
-		}
-
-		public function tampilmap()
-		{
-			$data= $this->db->get('tb_map')->result();
-			echo json_encode($data);
+			$data['map'] = $this->m_map->tampil_map();
+			$this->template->load('template', 'map', $data);
 		}
 
 	}
