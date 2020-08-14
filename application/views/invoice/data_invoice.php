@@ -17,7 +17,7 @@
                                 <th>Alamat Pengiriman</th>
                                 <th>Telepon</th>
                                 <th>Tanggal Pemesanan</th>
-                                <th>Batas Pembayaran</th>
+                               
                                 <th>Aksi </th>
                               </tr>
                             </thead>
@@ -31,7 +31,7 @@
                                   <td><?=$data->alamat?></td> 
                                   <td><?=$data->telepon?></td> 
                                   <td><?=$data->tgl_pesan?></td> 
-                                  <td><?=$data->batas_bayar?></td> 
+                                 
                                   
                                   <td class="text-center" width="180px">
                                       <a href="<?=site_url('cinvoice/detail_invoice/'. $data->id_invoice)?>" class="btn btn-info btn-sm"><i class="fa fa-pencil"> Detail</i></button></a> 

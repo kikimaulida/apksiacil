@@ -91,9 +91,9 @@
                             
                     </li>
 
-                    <li <?=$this->uri->segment(1) == 'Cmap' ? 'class="active"' : ''?>>
+                   <!--  <li <?=$this->uri->segment(1) == 'Cmap' ? 'class="active"' : ''?>>
                         <a href="<?=site_url('Cmap')?>"> <i class="menu-icon fa fa-flag"></i> MAP</a>
-                     </li>
+                     </li> -->
                     <?php } ?>
                     <h3 class="menu-title">Kelola Data</h3>
                     <?php if($this->session->userdata('level') != 'pelaku usaha') { ?>

@@ -6,13 +6,12 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,
-maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <title>Sistem Informasi Usaha Kecil</title>
     <link rel="shortcut icon" href="<?=base_url()?>/assets/images/tala.png">
     <!-- Google Font -->
-    <link href="<?=base_url()?>/assets1/https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+   <!--  <link href="<?=base_url()?>/assets1/https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet"> -->
     <!-- Css Styles -->
     <link rel="stylesheet" href="<?=base_url()?>/assets1/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="<?=base_url()?>/assets1/css/font-awesome.min.css" type="text/css">
@@ -23,9 +22,8 @@ maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="<?=base_url()?>/assets1/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="<?=base_url()?>/assets1/css/style.css" type="text/css">
 
-     <!-- Css Styles assets 2 -->
-     <!-- Required meta tags -->
-    <meta charset="utf-8" />
+    <!-- Css Styles assets 2 -->
+    <!-- Required meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="icon" href="img/favicon.png" type="image/png" />
       
@@ -51,13 +49,12 @@ maximum-scale=1.0, user-scalable=no" />
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
    crossorigin=""/>
 
-   <link rel="stylesheet" href="<?=base_url()?>/assets/leaflet/leaflet-routing-machine.css">
-
-   <style type="text/css">
-       #mapid{
-        height: 500px;
-       }
-   </style>
+    <link rel="stylesheet" href="<?=base_url()?>/assets/leaflet/routing/dist/leaflet-routing-machine.css">
+    <style type="text/css">
+        #mapid{
+            height: 500px;
+        }
+    </style>
 </head>
 
 <body>
@@ -297,18 +294,16 @@ maximum-scale=1.0, user-scalable=no" />
    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
    crossorigin=""></script>
 
-   <script src="<?=base_url()?>/assets/leaflet/leaflet-routing-machine.js"></script>
+   <script src="<?=base_url()?>/assets/leaflet/routing/dist/leaflet-routing-machine.js"></script>
 
    <script type="text/javascript">
-       /*var mymap = L.map('mapid').setView([-3.7611832,114.7736553], 10);*/
-       var mymap = L.map('mapid').fitWorld();
+        var mymap = L.map('mapid').fitWorld();
 
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
               attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
               maxZoom: 18,
               id: 'mapbox.streets',
               accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'}).addTo(mymap);
-       /* var marker = L.marker([-3.8040346, 114.7666953]).addTo(mymap).bindPopup("<b>Ruang Terbuka Hijau</b><br>Lat: -3.8040346 <br> Lng: 114.7666953");*/
 
         var marker;
         var latlng;
@@ -316,36 +311,47 @@ maximum-scale=1.0, user-scalable=no" />
         var lat2, lng2;
         var route;
         var icon;
-
-
+        var statusrute = 0;
+       
+        function onLocationFound(e)
+        {
+            latlng = e.latlng;
+            lat1 = String(e.latlng.lat);
+            lng1 = String(e.latlng.lng);
+            marker = new L.marker(latlng).addTo(mymap).bindTooltip("Saya");
+        }
+        mymap.on('locationfound', onLocationFound);
+        mymap.locate({setView: true, watch: true, maxZoom: 15});
+        
         <?php 
             foreach ($map->result() as $data):
-        ?>
-            function onLocationFound(e)
+        ?> 
+            icon = L.icon({iconUrl: "<?=base_url()?>/assets/images/green.png", iconSize: [24, 37], iconAnchor: [12, 37]});
+            marker = new L.marker([<?php echo $data->lat ?>, <?php echo $data->lng?>], {icon: icon}).addTo(mymap).bindTooltip("<?php echo $data->nama_usaha?>");
+        <?php endforeach; ?>
+       
+        marker.on('click', function(e)
+        {
+            lat2 = e.latlng.lat;
+            lng2 = e.latlng.lng;
+            if (statusrute == 1)
+                mymap.removeControl(route);
+            route = L.Routing.control({
+            waypoints: [
+                L.latLng(lat1, lng1),
+                L.latLng(lat2, lng2)
+            ]
+            }).addTo(mymap);
+            statusrute = 1;
+        });
+
+        mymap.on('click', function (){
+            if(statusrute == 1)
             {
-                 /*marker = L.marker(e.latlng).addTo(mymap);*/
-                 latlng = e.latlng;
-                 lat1 = String(e.latlng.lat);
-                 lng1 = String(e.latlng.lng);
-                 marker = L.marker(latlng).addTo(mymap).bindTooltip("Saya");
+                mymap.removeControl(route);
+                statusrute = 0;
             }
-            mymap.on('locationfound', onLocationFound);
-            mymap.locate({setView: true, watch: true, maxZoom: 15});
-            
-            icon = L.icon({iconUrl: "application/views/green.png", iconAnchor: [16, 37]});
-            marker = L.marker([<?php echo $data->lat ?>, <?php echo $data->lng?>]).addTo(mymap).bindPopup("<?php echo $data->nama_usaha?>");
-
-            marker.on('click', function(e){
-                lat2 = e.latlng.lat;
-                lng2 = e.latlng.lng;
-                route = L.Routing.control({
-                waypoints: [
-                    L.latlng(lat1, lng1),
-                    L.latlng(lat2, lng2)]
-
-                });
-            });
-        <?php endforeach; ?> 
+        });
    </script>
 </body>
 </html>

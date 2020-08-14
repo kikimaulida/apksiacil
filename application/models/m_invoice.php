@@ -15,7 +15,7 @@ class m_invoice extends CI_Model {
 			'alamat' => $alamat,
 			'telepon' => $telepon,
 			'tgl_pesan' => date('Y-m-d H:i:s'),
-			'batas_bayar' => date('Y-m-d H:i:s', mktime( date('H'), date('i'), date('s'), date('m'), date('d)') + 1, date('Y'))),
+			
 		);
 		$this->db->insert('tb_invoice', $invoice);
 		$id_invoice = $this->db->insert_id();
@@ -24,7 +24,6 @@ class m_invoice extends CI_Model {
 			$data = array(
 				'id_invoice'	=> $id_invoice,
 				'id_produk'		=> $item['id'],
-				/*'id_usaha'		=> $item['idu'],*/
 				'nama_produk'	=> $item['name'],
 				'jumlah'		=> $item['qty'],
 				'harga'			=> $item['price'],
