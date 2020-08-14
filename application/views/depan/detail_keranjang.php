@@ -24,9 +24,10 @@
                         <table>
                             <thead>
                                 <tr>
-                                                                        <th class="shoping__product">Products</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>    
+                                    <th class="shoping__product">Nama Produk</th>
+                                    <th>Foto</th>
+                                    <th>Harga</th>
+                                    <th>Jumlah</th>    
                                     <th>Sub-Total</th>
                                     <th></th>
                                 </tr>
@@ -38,14 +39,16 @@
                                 foreach ($data as $items): ?> 
                                  
                                 <tr>
+                                    
                                     <td style="text-align: left; font-size: 14pt; color: black;">
-                                        <!-- <div class="checkbox">
-                                          <label><input type="checkbox" value=""></label>
-                                        </div> -->
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="<?php echo $items['id_keranjang']?>">
                                             <label class="custom-control-label" for="<?php echo $items['id_keranjang']?>"><b style="color: #1c1c1c;"><?php echo $items['nama_produk']?></b></label>
                                         </div>
+                                    </td>
+
+                                    <td>
+                                        <img src= "<?=base_url('uploads/produk/'.$items['foto_produk'])?>" style="height: 80px;">
                                     </td>
                                    
                                     <td class="shoping__cart__price">
