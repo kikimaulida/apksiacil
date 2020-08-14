@@ -24,7 +24,7 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="shoping__product">Products</th>
+                                                                        <th class="shoping__product">Products</th>
                                     <th>Price</th>
                                     <th>Quantity</th>    
                                     <th>Sub-Total</th>
@@ -33,34 +33,42 @@
                             </thead>
                             <tbody>
                                 <?php 
-                                foreach ($this->cart->contents() as $items): ?> 
+                                $total = 0;
+
+                                foreach ($data as $items): ?> 
                                  
                                 <tr>
-                                    <td class="shoping__cart__item">
-                                        <!-- <img src="<?php echo base_url('uploads/produk/'.$items['foto_produk']); ?>" alt=""> -->
-                                        <h5><?php echo $items['name'] ?></h5>
-                                        <!-- <h5><?php echo $items['idu'] ?></h5> -->
+                                    <td style="text-align: left; font-size: 14pt; color: black;">
+                                        <!-- <div class="checkbox">
+                                          <label><input type="checkbox" value=""></label>
+                                        </div> -->
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="<?php echo $items['id_keranjang']?>">
+                                            <label class="custom-control-label" for="<?php echo $items['id_keranjang']?>"><b style="color: #1c1c1c;"><?php echo $items['nama_produk']?></b></label>
+                                        </div>
                                     </td>
+                                   
                                     <td class="shoping__cart__price">
-                                        Rp. <?php echo number_format($items['price'], 0,',','.')  ?>
+                                        Rp. <?php echo number_format($items['harga'], 0,',','.')  ?>
                                     </td>
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
                                             <div class="pro-qty">
-                                                <input type="text" value=<?php echo $items['qty'] ?>>
+                                                <input type="text" value=<?php echo $items['jumlah'] ?>>
                                             </div>
                                         </div>
                                     </td>
                                     
                                     
                                     <td class="shoping__cart__total">
-                                        Rp. <?php echo number_format($items['subtotal'], 0,',','.')  ?>
+                                        Rp. <?php echo number_format($items['jumlah']*$items['harga'], 0,',','.')  ?>
                                     </td>
                                     <td class="shoping__cart__item__close">
-                                        <a href="<?=base_url('chome/hapus_keranjang/'. $items['rowid'] )?> "> <span class="icon_close"></span></a>
+                                        <a href="<?=base_url('chome/hapus_keranjang/'. $items['id_keranjang'] )?> "> <span class="icon_close"></span></a>
                                     </td>
                                 </tr>
-                            <?php endforeach; ?>
+
+                            <?php $total+= $items['jumlah']*$items['harga']; endforeach;  ?> 
                             </tbody>
                         </table>
                     </div>
@@ -81,7 +89,7 @@
                     <div class="shoping__checkout">
                         <h5>Cart Total</h5>
                         <ul>
-                            <li>Total <span> Rp. <?php echo number_format($this->cart->total(), 0,',','.')  ?></span></li>
+                            <li>Total <span> Rp. <?php echo number_format($total, 0,',','.')  ?></span></li>
                         </ul>
                         <a href="<?=site_url('chome/pembayaran')?>" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>

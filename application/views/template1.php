@@ -145,8 +145,10 @@
                         <div class="header__top__right__language">
                             <div> 
                                 <?php
-                                $keranjang = 'Keranjang Belanja: '.$this->cart->total_items(). ' items' ?>
+                                    $dt=$this->db->query("SELECT * FROM tb_keranjang WHERE id_pengguna = '".$this->session->userdata('id_pengguna')."'")->num_rows();
+                                $keranjang = 'Keranjang Belanja: '.$dt. ' items' ?>
                                 <?php echo anchor('chome/detail_keranjang', $keranjang) ?>
+
                             </div>
                         </div>
                         <div class="header__top__right__language">
@@ -321,7 +323,7 @@
             marker = new L.marker(latlng).addTo(mymap).bindTooltip("Saya");
         }
         mymap.on('locationfound', onLocationFound);
-        mymap.locate({setView: true, watch: true, maxZoom: 15});
+        mymap.locate({setView: true, watch: true, maxZoom: 12});
         
         <?php 
             foreach ($map->result() as $data):

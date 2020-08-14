@@ -69,6 +69,12 @@ class m_invoice extends CI_Model {
 			return false;
 		}
 	}
+
+	public function detail_keranjang()
+	{
+		$id_pengguna = $this->session->userdata('id_pengguna');
+		return $this->db->query("SELECT tb_keranjang.*, tb_produk.* FROM tb_keranjang JOIN tb_produk ON tb_keranjang.id_produk = tb_produk.id_produk WHERE tb_keranjang.id_pengguna = '$id_pengguna'")->result_array();
+	}
  
 	
 }

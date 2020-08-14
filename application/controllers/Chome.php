@@ -19,34 +19,46 @@ class Chome extends CI_Controller {
 
 	public function tambah_keranjang($id)
 	{
-		$produk = $this->m_produkd->find($id);
-		$id_pengguna = $id_pengguna = $this->session->userdata('id_pengguna');
-		$data = array(
-			'id' => $produk->id_produk,
-			/*'idu' => $produk->id_usaha,*/
-			/*'idu' => $id_pengguna,*/
-			'qty' => 1,
-			'price' => $produk->harga,
-			'name' => $produk->nama_produk, 
+		$id_pengguna = $this->session->userdata('id_pengguna');
+		$dt = $this->db->query("SELECT * FROM tb_keranjang WHERE id_pengguna = '$id_pengguna' AND id_produk = '$id'");
+		$cek = $dt->num_rows();
+		if($cek > 0)
+		{
+			$dta = $dt->row();
+			$jml = $dta->jumlah+1;
+			$data = array(
+				'jumlah' => $jml, 
+			);
+			$this->db->where('id_keranjang', $dta->id_keranjang);
+			$this->db->update('tb_keranjang', $data);
+
+		}else{
+			$data = array(
+			'id_keranjang' => '',
+			'id_pengguna' => $id_pengguna,
+			'id_produk' => $id,
+			'jumlah' => 1, 
 
 		);
-		$this->cart->insert($data);
+		$this->db->insert('tb_keranjang', $data);
+		}
+		
 		redirect('Chome/tampilproduk');
 	}
 
 	public function detail_keranjang()
 	{
 		
-		$this->template1->load('template1', 'depan/detail_keranjang');
+		$data ['data'] = $this->m_invoice->detail_keranjang();	
+		/*print_r($data);*/
+		$this->template1->load('template1', 'depan/detail_keranjang', $data);
 	}
 
 	public function hapus_keranjang($id)
 	{
-		$data = array(
-                'rowid' => $this->uri->segment(3),
-                'qty'   => 0);
-        $this->cart->update($data);
-		$this->template1->load('template1', 'depan/detail_keranjang');
+		$this->db->where('id_keranjang', $id);
+        $this->db->delete('tb_keranjang');
+		redirect('Chome/detail_keranjang');
 	}
 
 	public function pembayaran()
